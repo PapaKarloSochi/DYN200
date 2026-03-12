@@ -383,8 +383,8 @@ class ValueCard(ctk.CTkFrame):
         
     def update_value(self, value: float, animate: bool = True):
         """
-        Обновление значения с анимацией.
-
+        Обновление текущего значения с анимацией.
+        
         Args:
             value: Новое значение
             animate: Включить анимацию изменения
@@ -398,20 +398,29 @@ class ValueCard(ctk.CTkFrame):
         # Обновление значения
         self.value_label.configure(text=formatted)
 
-        # Обновление максимума
-        if abs(value) > abs(self.max_value):
-            self.max_value = value
-            max_formatted = self._format_value(self.max_value)
-            self.max_label.configure(
-                text=f"Max: {max_formatted}"
-            )
-            # Добавляем единицу измерения если она есть
-            if self.max_unit:
-                max_formatted += f" {self.max_unit}"
-            self.max_value_label.configure(text=max_formatted)
-
         # Обновление тренда
         self._update_trend()
+    
+    def update_max_value(self, max_value: float):
+        """
+        Требование 3: Обновление максимального значения в карточке.
+        
+        Максимальные значения отображаются в квадратах слева
+        и сбрасываются только при нажатии кнопки "Сброс".
+        
+        Args:
+            max_value: Максимальное значение для отображения
+        """
+        self.max_value = max_value
+        max_formatted = self._format_value(max_value)
+        
+        # Обновляем метку максимума в подвале
+        self.max_label.configure(text=f"Max: {max_formatted}")
+        
+        # Обновляем крупное отображение максимума
+        if self.max_unit:
+            max_formatted += f" {self.max_unit}"
+        self.max_value_label.configure(text=max_formatted)
 
     def _format_value(self, value: float) -> str:
         """
@@ -501,7 +510,12 @@ class ValueCard(ctk.CTkFrame):
         thread.start()
         
     def reset_max(self):
-        """Сброс максимального значения."""
+        """
+        Требование 3: Сброс максимального значения.
+        
+        Вызывается только при нажатии кнопки "Сброс".
+        Очищает отображение максимальных значений в карточке.
+        """
         self.max_value = 0.0
         self.max_label.configure(text="Max: —")
         self.max_value_label.configure(text="—")

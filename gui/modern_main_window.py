@@ -619,16 +619,38 @@ class ModernMainWindow:
         )
         separator.pack(side="left", padx=12)
         
-        # Главная кнопка запуска
-        self.main_btn = ActionButton(
+        # Требование 2 & 3: Кнопка Старт (начать/продолжить считывание)
+        self.start_btn = ActionButton(
             button_container,
-            text="ЗАПУСТИТЬ",
+            text="СТАРТ",
             variant="primary",
             icon="▶",
-            command=self._toggle_reading,
+            command=self._start_reading,
             state="disabled"
         )
-        self.main_btn.pack(side="left", padx=4)
+        self.start_btn.pack(side="left", padx=4)
+        
+        # Кнопка Стоп (пауза)
+        self.stop_btn = ActionButton(
+            button_container,
+            text="СТОП",
+            variant="secondary",
+            icon="⏹",
+            command=self._stop_reading,
+            state="disabled"
+        )
+        self.stop_btn.pack(side="left", padx=4)
+        
+        # Кнопка Сброс (полностью очищает график и данные)
+        self.reset_btn = ActionButton(
+            button_container,
+            text="СБРОС",
+            variant="secondary",
+            icon="↺",
+            command=self._reset_all,
+            state="disabled"
+        )
+        self.reset_btn.pack(side="left", padx=4)
         
         # Кнопка логирования
         self.log_btn = ActionButton(
@@ -640,27 +662,6 @@ class ModernMainWindow:
             state="disabled"
         )
         self.log_btn.pack(side="left", padx=4)
-        
-        # Кнопка Сбросить (бывшая Zero) - очищает данные и график
-        self.zero_btn = ActionButton(
-            button_container,
-            text="Сбросить",
-            variant="secondary",
-            icon="↺",
-            command=self._reset_data,
-            state="disabled"
-        )
-        self.zero_btn.pack(side="left", padx=4)
-        
-        # Кнопка Сбросить Max
-        self.reset_max_btn = ActionButton(
-            button_container,
-            text="Сбросить Max",
-            variant="tertiary",
-            icon="↻",
-            command=self._reset_max_values
-        )
-        self.reset_max_btn.pack(side="left", padx=4)
         
         # Создаем скрытый виджет для логов
         self._create_hidden_log_widget()
@@ -1078,66 +1079,101 @@ class ModernMainWindow:
         """
         Обновление меток значений.
         
+        Требование 3: Максимальные значения фиксируются во время замера
+        и отображаются в квадратах слева.
+        
         Args:
             torque: Крутящий момент в Н·м
             speed: Скорость в RPM
             power: Мощность в Вт
         """
-        # Обновляем карточки
+        # Обновляем текущие значения в карточках
         self.torque_card.update_value(torque)
         self.speed_card.update_value(speed)
         self.power_card.update_value(power)
         
-        # Обновляем максимальные значения
-        if abs(torque) > abs(self.max_torque):
-            self.max_torque = torque
-        if speed > self.max_speed:
-            self.max_speed = speed
-        if power > self.max_power:
-            self.max_power = power
+        # Требование 3: Обновляем максимальные значения ТОЛЬКО если идёт считывание
+        if self.state.is_reading:
+            max_updated = False
+            
+            if abs(torque) > abs(self.max_torque):
+                self.max_torque = torque
+                max_updated = True
+            if speed > self.max_speed:
+                self.max_speed = speed
+                max_updated = True
+            if power > self.max_power:
+                self.max_power = power
+                max_updated = True
+            
+            # Обновляем отображение максимумов в карточках
+            if max_updated:
+                self.torque_card.update_max_value(self.max_torque)
+                self.speed_card.update_max_value(self.max_speed)
+                self.power_card.update_max_value(self.max_power)
     
     def _update_ui_connected(self, connected: bool) -> None:
         """
         Обновление UI при изменении состояния подключения.
         
+        Требование 2: При подключении считывание НЕ начинается автоматически.
+        Пользователь должен явно нажать кнопку "Старт".
+        
         Args:
             connected: True если подключено
         """
         if connected:
-            self.main_btn.configure(state="normal")
-            self.zero_btn.configure(state="normal")
+            # Требование 2: Не запускаем считывание автоматически
+            self.start_btn.configure(state="normal")
+            self.stop_btn.configure(state="disabled")
+            self.reset_btn.configure(state="normal")
             self.log_btn.configure(state="normal")
             self.status_badge.set_status("CONNECTED", True)
-            self._start_reading()
+            # НЕ вызываем self._start_reading() - ждём нажатия кнопки Старт
         else:
-            self.main_btn.configure(state="disabled")
-            self.zero_btn.configure(state="disabled")
+            self.start_btn.configure(state="disabled")
+            self.stop_btn.configure(state="disabled")
+            self.reset_btn.configure(state="disabled")
             self.log_btn.configure(state="disabled")
             self.status_badge.set_status("DISCONNECTED", False)
             self._stop_reading()
     
-    def _toggle_reading(self) -> None:
-        """Переключение считывания данных"""
-        if self.state.is_reading:
-            self._stop_reading()
-        else:
-            self._start_reading()
-    
     def _start_reading(self) -> None:
-        """Начать считывание данных"""
+        """
+        Требование 2 & 3: Начать/продолжить считывание данных.
+        
+        При повторном нажатии после остановки - данные продолжают накапливаться
+        (график продолжается, а не начинается заново).
+        """
+        if not self.state.is_connected:
+            self.logger.log("Нет подключения к датчику")
+            return
+            
         self.state.is_reading = True
         self.stop_thread.clear()
-        self.main_btn.configure(text="⏹ ОСТАНОВИТЬ")
+        
+        # Обновляем кнопки
+        self.start_btn.configure(state="disabled")
+        self.stop_btn.configure(state="normal")
         self.state.reading_status.set("производится")
-        self.logger.log("Считывание данных начато")
+        
+        self.logger.log("Считывание данных начато (продолжено)")
     
     def _stop_reading(self) -> None:
-        """Остановить считывание данных"""
+        """
+        Требование 3: Остановить (приостановить) считывание данных.
+        
+        Данные сохраняются, при повторном старте график продолжится.
+        """
         self.state.is_reading = False
         self.stop_thread.set()
-        self.main_btn.configure(text="▶ ЗАПУСТИТЬ")
+        
+        # Обновляем кнопки
+        self.start_btn.configure(state="normal")
+        self.stop_btn.configure(state="disabled")
         self.state.reading_status.set("остановлено")
-        self.logger.log("Считывание данных остановлено")
+        
+        self.logger.log("Считывание данных остановлено (пауза)")
     
     def _disconnect(self) -> None:
         """Отключение от датчика"""
@@ -1187,21 +1223,38 @@ class ModernMainWindow:
         self.log_btn.configure(text="Логирование")
         self.logger.log("Логирование остановлено")
     
-    def _reset_data(self) -> None:
-        """Сбросить данные и очистить график"""
+    def _reset_all(self) -> None:
+        """
+        Требование 2 & 3: Полный сброс - очищает график, все данные и максимумы.
+        
+        Эта кнопка полностью сбрасывает состояние:
+        - Очищает все накопленные данные
+        - Очищает график
+        - Сбрасывает максимальные значения
+        - Останавливает считывание если было активно
+        """
+        # Останавливаем считывание если активно
+        was_reading = self.state.is_reading
+        if was_reading:
+            self._stop_reading()
+        
+        # Очищаем данные
         self.state.clear_data()
         self.plot_manager.clear_plots()
-        self.logger.log("Данные сброшены")
+        
+        # Требование 3: Сбрасываем максимальные значения
+        self._reset_max_values_internal()
+        
+        self.logger.log("Полный сброс выполнен (данные, график, максимумы)")
     
-    def _reset_max_values(self) -> None:
-        """Сбросить максимальные значения (Peak Hold)"""
+    def _reset_max_values_internal(self) -> None:
+        """Внутренний метод сброса максимальных значений (без лога)"""
         self.max_torque = 0.0
         self.max_speed = 0.0
         self.max_power = 0.0
         self.torque_card.reset_max()
         self.speed_card.reset_max()
         self.power_card.reset_max()
-        self.logger.log("Максимальные значения сброшены")
     
     def _update_plot_loop(self) -> None:
         """
