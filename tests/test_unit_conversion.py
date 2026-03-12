@@ -26,9 +26,9 @@ class TestRawToTorque:
     """Тесты для функции raw_to_torque"""
     
     def test_raw_to_torque_positive(self):
-        """Тест конвертации положительного значения"""
+        """Тест конвертации положительного значения (деление на 1000)"""
         result = raw_to_torque(1000)
-        assert result == 1.0  # 1000 * 0.001
+        assert result == 1.0  # 1000 / 1000 = 1.0 Н·м
         assert isinstance(result, float)
     
     def test_raw_to_torque_zero(self):
@@ -39,29 +39,35 @@ class TestRawToTorque:
     
     def test_raw_to_torque_negative(self):
         """Тест конвертации отрицательного значения"""
-        result = raw_to_torque(-500)
-        assert result == -0.5
+        result = raw_to_torque(-5000)
+        assert result == -5.0  # -5000 / 1000 = -5.0 Н·м
         assert isinstance(result, float)
     
     def test_raw_to_torque_large_positive(self):
         """Тест конвертации большого положительного значения"""
         result = raw_to_torque(50000)
-        assert result == 50.0
+        assert result == 50.0  # 50000 / 1000 = 50.0 Н·м
     
     def test_raw_to_torque_large_negative(self):
         """Тест конвертации большого отрицательного значения"""
         result = raw_to_torque(-100000)
-        assert result == -100.0
+        assert result == -100.0  # -100000 / 1000 = -100.0 Н·м
     
     def test_raw_to_torque_fractional(self):
         """Тест конвертации дробного результата"""
         result = raw_to_torque(1234)
-        assert result == 1.234
+        assert result == 1.234  # 1234 / 1000 = 1.234 Н·м
+    
+    def test_raw_to_torque_with_coefficient(self):
+        """Тест с коэффициентом коррекции"""
+        # Если raw=1200 (1.2 Н·м), а на дисплее показывает 1.2, то coefficient=1.0
+        result = raw_to_torque(1200, coefficient=1.0)
+        assert pytest.approx(result, 0.0001) == 1.2  # (1200 / 1000) * 1.0 = 1.2
     
     def test_raw_to_torque_alias(self):
         """Тест алиаса raw_to_torque_nm"""
         result = raw_to_torque_nm(2000)
-        assert result == 2.0
+        assert result == 2.0  # 2000 / 1000 = 2.0 Н·м
         assert raw_to_torque_nm(1000) == raw_to_torque(1000)
 
 
@@ -75,26 +81,26 @@ class TestRawToSpeed:
         assert isinstance(result, float)
     
     def test_raw_to_speed_positive(self):
-        """Тест конвертации положительного значения"""
+        """Тест конвертации положительного значения (1:1)"""
         result = raw_to_speed(1000)
-        assert result == 100.0  # 1000 / 10
+        assert result == 1000.0  # 1000 напрямую (без деления)
     
     def test_raw_to_speed_typical_rpm(self):
         """Тест типичных значений RPM"""
         # 3000 RPM
-        result = raw_to_speed(30000)
+        result = raw_to_speed(3000)
         assert result == 3000.0
     
     def test_raw_to_speed_maximum(self):
         """Тест максимального значения"""
         # Максимум для 16-bit unsigned
         result = raw_to_speed(65535)
-        assert result == 6553.5
+        assert result == 65535.0
     
     def test_raw_to_speed_alias(self):
         """Тест алиаса raw_to_speed_rpm"""
         result = raw_to_speed_rpm(5000)
-        assert result == 500.0
+        assert result == 5000.0
         assert raw_to_speed_rpm(1000) == raw_to_speed(1000)
 
 
@@ -107,29 +113,29 @@ class TestRawToPower:
         assert result == 0.0
     
     def test_raw_to_power_positive(self):
-        """Тест конвертации положительного значения"""
-        result = raw_to_power(1000)
-        assert result == 1000.0  # 1:1 без коррекции
+        """Тест конвертации положительного значения (raw в Вт)"""
+        result = raw_to_power(838)  # 838 Вт
+        assert result == 838.0  # 838 * 1.0 = 838 Вт
     
     def test_raw_to_power_with_correction(self):
         """Тест с коэффициентом коррекции"""
-        result = raw_to_power(1000, correction=0.5)
-        assert result == 500.0
+        result = raw_to_power(500, correction=0.5)  # 500 * 0.5
+        assert result == 250.0
     
     def test_raw_to_power_correction_greater_than_one(self):
         """Тест с коррекцией > 1"""
-        result = raw_to_power(1000, correction=1.5)
-        assert result == 1500.0
+        result = raw_to_power(500, correction=1.5)  # 500 * 1.5
+        assert result == 750.0
     
     def test_raw_to_power_default_correction(self):
         """Тест коррекции по умолчанию"""
-        result = raw_to_power(500)
-        assert result == 500.0  # correction=1.0 по умолчанию
+        result = raw_to_power(1000)  # 1000 * 1.0 = 1000 Вт
+        assert result == 1000.0  # correction=1.0 по умолчанию
     
     def test_raw_to_power_alias(self):
         """Тест алиаса raw_to_power_w"""
-        result = raw_to_power_w(750, correction=0.8)
-        assert result == 600.0
+        result = raw_to_power_w(500, correction=0.8)  # 500 * 0.8
+        assert result == 400.0
         assert raw_to_power_w(1000) == raw_to_power(1000)
 
 
@@ -181,12 +187,12 @@ class TestEdgeCases:
     def test_raw_to_torque_boundary_32bit(self):
         """Тест максимального 32-bit значения"""
         result = raw_to_torque(2147483647)
-        assert result == 2147483.647
+        assert result == 2147483.647  # Делим на 1000
     
     def test_raw_to_speed_zero_boundary(self):
-        """Тест границы нуля"""
+        """Тест границы нуля (1:1 соответствие)"""
         result = raw_to_speed(1)
-        assert result == 0.1
+        assert result == 1.0  # 1:1, без деления
     
     def test_raw_to_power_with_zero_correction(self):
         """Тест с нулевой коррекцией"""
@@ -197,14 +203,14 @@ class TestEdgeCases:
         """Тест цепочки конверсий (типичный use case)"""
         # Симуляция чтения из Modbus
         raw_high = 0x0000
-        raw_low = 0x03E8  # 1000 в десятичном
+        raw_low = 0x04B0  # 1200 в десятичном (1200 / 1000 = 1.2 Н·м)
         raw_32bit = (raw_high << 16) | raw_low
         
         signed = to_signed32(raw_32bit)
         torque = raw_to_torque(signed)
         
-        assert signed == 1000
-        assert torque == 1.0
+        assert signed == 1200
+        assert torque == 1.2
 
 
 if __name__ == "__main__":

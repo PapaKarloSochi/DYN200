@@ -75,6 +75,9 @@ class ValueCard(ctk.CTkFrame):
         self.max_unit = max_unit
         self.accent_color = color
         self.decimal_places = decimal_places
+        self.unit_label = None
+        self.max_unit_label = None  # Метка единиц измерения для максимума
+        self.max_value_label = None  # Метка значения максимума (для обновления)
         self.max_value: float = 0.0
         self.current_value: float = 0.0
         self.pulsing = False
@@ -344,6 +347,9 @@ class ValueCard(ctk.CTkFrame):
         )
         self.unit_label.pack()
         
+        # Сохраняем ссылку на метку единиц измерения
+        self.max_unit_label = None  # Будет установлено при необходимости
+        
     def _create_footer(self):
         """Создание подвала с максимумом."""
         # Разделительная линия
@@ -518,7 +524,29 @@ class ValueCard(ctk.CTkFrame):
         """
         self.max_value = 0.0
         self.max_label.configure(text="Max: —")
-        self.max_value_label.configure(text="—")
+        if self.max_value_label:
+            self.max_value_label.configure(text="—")
+    
+    def update_unit(self, new_unit: str, new_max_unit: str = ""):
+        """
+        Обновление единиц измерения.
+        
+        Args:
+            new_unit: Новая единица измерения (отображается под значением)
+            new_max_unit: Новая единица измерения для максимума (опционально)
+        """
+        self.unit = new_unit
+        if new_max_unit:
+            self.max_unit = new_max_unit
+        
+        # Обновляем отображение
+        if self.unit_label:
+            self.unit_label.configure(text=self.unit)
+        
+        # Обновляем отображение максимума с новой единицей
+        if self.max_value_label and self.max_unit:
+            max_formatted = self._format_value(self.max_value)
+            self.max_value_label.configure(text=f"{max_formatted} {self.max_unit}")
         
     def update_theme_colors(self, colors: dict):
         """Обновление цветов карточки при смене темы.
@@ -535,13 +563,15 @@ class ValueCard(ctk.CTkFrame):
         # Обновляем цвета заголовка и значения
         self.title_label.configure(text_color=colors['ON_SURFACE_VARIANT'])
         self.value_label.configure(text_color=self.accent_color)
-        self.unit_label.configure(text_color=colors['ON_SURFACE_VARIANT'])
+        if self.unit_label:
+            self.unit_label.configure(text_color=colors['ON_SURFACE_VARIANT'])
         self.max_label.configure(text_color=colors['ON_SURFACE_VARIANT'])
         self.trend_label.configure(text_color=self.accent_color)
         
         # Обновляем цвета для max отображения
         self.max_title_label.configure(text_color=colors['ON_SURFACE_VARIANT'])
-        self.max_value_label.configure(text_color=self.accent_color)
+        if self.max_value_label:
+            self.max_value_label.configure(text_color=self.accent_color)
         
         # Обновляем цвет разделителя
         self.separator.configure(fg_color=colors['OUTLINE_VARIANT'])

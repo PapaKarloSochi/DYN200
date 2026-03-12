@@ -87,6 +87,14 @@ class AppState:
         self.speed_coefficient = tk.DoubleVar(value=1.0)   # Множитель для оборотов (1:1 для DYN-200)
         self.power_correction = tk.DoubleVar(value=1.0)    # Коэффициент коррекции мощности (0.1 - 2.0)
         
+        # ===== ПАРАМЕТРЫ ДАТЧИКА DYN-200 (редактируемые) =====
+        # Rdecimal: количество десятичных знаков для скорости (влияет на деление/умножение speed)
+        self.r_decimal = tk.IntVar(value=1)  # 0-4, по умолчанию 1 (деление на 10^1 = 10)
+        # T_ratio: передаточное отношение для крутящего момента (коэффициент для torque)
+        self.t_ratio = tk.IntVar(value=1087)  # 1-9999, по умолчанию 1087
+        # P_units: единицы измерения мощности W/kW
+        self.p_units = tk.StringVar(value="W")  # "W" или "kW", по умолчанию "W"
+        
         # Настройки осей
         self.axis_settings = {
             'torque': {

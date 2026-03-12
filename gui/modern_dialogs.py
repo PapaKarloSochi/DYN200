@@ -1056,3 +1056,535 @@ class ModernBasicSettingsDialog(ModernDialogBase):
             self.on_apply()
 
         self._on_close()
+
+
+class ModernSensorInfoDialog(ModernDialogBase):
+    """
+    Диалог редактирования параметров датчика DYN-200.
+    
+    Позволяет редактировать ключевые параметры датчика, влияющие на расчёт значений:
+    - Rdecimal: количество десятичных знаков для скорости
+    - T_ratio: передаточное отношение для крутящего момента
+    - P_units: единицы измерения мощности (W/kW)
+    
+    Параметры автоматически применяются при нажатии кнопки "Применить"
+    и сохраняются в состоянии приложения (AppState).
+    
+    Attributes:
+        state: Состояние приложения (AppState).
+        on_apply: Callback при применении настроек.
+    
+    Example:
+        >>> dialog = ModernSensorInfoDialog(root, state, on_apply_callback)
+    """
+    
+    def __init__(self, parent: ctk.CTk, state, on_apply: Optional[Callable[[], None]] = None) -> None:
+        """
+        Инициализация диалога параметров датчика.
+        
+        Args:
+            parent: Родительское окно.
+            state: Состояние приложения (AppState).
+            on_apply: Callback при применении настроек (опционально).
+        """
+        super().__init__(parent, "Параметры датчика DYN-200", 500, 550)
+        self.state = state
+        self.on_apply = on_apply
+        self._param_widgets = {}  # Словарь для хранения виджетов параметров
+        self._create_ui()
+        
+    def _create_ui(self) -> None:
+        """Создание интерфейса диалога."""
+        main_frame = self._create_main_frame()
+        
+        # Заголовок с иконкой
+        self._create_header(
+            main_frame,
+            "⚙️ Параметры датчика DYN-200",
+            "Настройте параметры, влияющие на расчёт значений"
+        )
+        
+        # Информационная панель с иконкой
+        self._create_info_banner(main_frame)
+        
+        # Разделитель
+        self._create_separator(main_frame)
+        
+        # Секция с редактируемыми параметрами
+        self._create_editable_params_section(main_frame)
+        
+        # Секция read-only параметров
+        self._create_readonly_params_section(main_frame)
+        
+        # Разделитель перед кнопками
+        self._create_separator(main_frame)
+        
+        # Кнопки
+        self._create_button_section(main_frame)
+        
+    def _create_info_banner(self, parent: ctk.CTkFrame) -> None:
+        """
+        Создание информационного баннера с подсказкой.
+        
+        Args:
+            parent: Родительский фрейм.
+        """
+        banner = ctk.CTkFrame(
+            parent,
+            fg_color=ModernTheme.SURFACE_CONTAINER_HIGH,
+            corner_radius=ModernTheme.RADIUS_MD
+        )
+        banner.pack(fill="x", padx=20, pady=(10, 5))
+        
+        # Иконка информации
+        icon_label = ctk.CTkLabel(
+            banner,
+            text="ℹ️",
+            font=ModernTheme.get_font(ModernTheme.FONT_SIZE_XL),
+            width=40
+        )
+        icon_label.pack(side="left", padx=(15, 10), pady=15)
+        
+        # Текст подсказки
+        info_text = ctk.CTkLabel(
+            banner,
+            text="Изменение этих параметров повлияет на расчёт отображаемых значений.\\n" +
+                 "Rdecimal - десятичные знаки скорости, T_ratio - передаточное отношение, P_units - единицы мощности.",
+            font=ModernTheme.get_font(ModernTheme.FONT_SIZE_SM),
+            text_color=ModernTheme.ON_SURFACE_VARIANT,
+            justify="left"
+        )
+        info_text.pack(side="left", padx=(0, 15), pady=15)
+        
+    def _create_editable_params_section(self, parent: ctk.CTkFrame) -> None:
+        """
+        Создание секции с редактируемыми параметрами.
+        
+        Args:
+            parent: Родительский фрейм.
+        """
+        # Заголовок секции
+        section_header = ctk.CTkFrame(parent, fg_color="transparent")
+        section_header.pack(fill="x", padx=20, pady=(10, 5))
+        
+        ctk.CTkLabel(
+            section_header,
+            text="🔧 Редактируемые параметры",
+            font=ModernTheme.get_font(ModernTheme.FONT_SIZE_LG, "bold"),
+            text_color=ModernTheme.PRIMARY
+        ).pack(anchor="w")
+        
+        ctk.CTkLabel(
+            section_header,
+            text="Эти параметры влияют на формулы пересчёта значений",
+            font=ModernTheme.get_font(ModernTheme.FONT_SIZE_SM),
+            text_color=ModernTheme.ON_SURFACE_VARIANT
+        ).pack(anchor="w", pady=(2, 0))
+        
+        # Контейнер для параметров
+        params_container = ctk.CTkFrame(parent, fg_color="transparent")
+        params_container.pack(fill="x", padx=20, pady=10)
+        
+        # Rdecimal - SpinBox (0-4)
+        self._create_spinbox_param(
+            params_container,
+            "Rdecimal:",
+            self.state.r_decimal,
+            "Десятичные знаки скорости (0-4)",
+            0, 4
+        )
+        
+        # T_ratio - Entry для ввода числа
+        self._create_entry_param(
+            params_container,
+            "T_ratio:",
+            self.state.t_ratio,
+            "Передаточное отношение (1-9999)"
+        )
+        
+        # P_units - ComboBox (W/kW)
+        self._create_combobox_param(
+            params_container,
+            "P_units:",
+            self.state.p_units,
+            ["W", "kW"],
+            "Единицы измерения мощности"
+        )
+        
+    def _create_readonly_params_section(self, parent: ctk.CTkFrame) -> None:
+        """
+        Создание секции с read-only параметрами.
+        
+        Args:
+            parent: Родительский фрейм.
+        """
+        # Заголовок секции
+        section_header = ctk.CTkFrame(parent, fg_color="transparent")
+        section_header.pack(fill="x", padx=20, pady=(15, 5))
+        
+        ctk.CTkLabel(
+            section_header,
+            text="📋 Информационные параметры",
+            font=ModernTheme.get_font(ModernTheme.FONT_SIZE_MD, "bold"),
+            text_color=ModernTheme.ON_SURFACE_VARIANT
+        ).pack(anchor="w")
+        
+        ctk.CTkLabel(
+            section_header,
+            text="Текущие настройки датчика (только для просмотра)",
+            font=ModernTheme.get_font(ModernTheme.FONT_SIZE_SM),
+            text_color=ModernTheme.ON_SURFACE_VARIANT
+        ).pack(anchor="w", pady=(2, 0))
+        
+        # Контейнер для параметров
+        params_container = ctk.CTkFrame(parent, fg_color="transparent")
+        params_container.pack(fill="x", padx=20, pady=10)
+        
+        # Read-only параметры
+        readonly_params = [
+            ("Baud rate:", str(self.state.baudrate.get()), "Скорость передачи данных"),
+            ("Modbus ID:", f"{self.state.slave_addr.get():03d}", "Адрес устройства в сети Modbus"),
+            ("Transmit:", "Auto", "Режим передачи данных"),
+            ("Parity:", "None", "Четность"),
+        ]
+        
+        for name, value, desc in readonly_params:
+            self._create_readonly_param_row(params_container, name, value, desc)
+        
+    def _create_spinbox_param(self, parent: ctk.CTkFrame, label: str, variable, hint: str, min_val: int, max_val: int) -> None:
+        """
+        Создание строки с spinbox для числового параметра.
+        
+        Args:
+            parent: Родительский фрейм.
+            label: Текст метки.
+            variable: Переменная tkinter для связи.
+            hint: Подсказка.
+            min_val: Минимальное значение.
+            max_val: Максимальное значение.
+        """
+        frame = ctk.CTkFrame(parent, fg_color="transparent")
+        frame.pack(fill="x", pady=8)
+        
+        # Метка параметра
+        ctk.CTkLabel(
+            frame,
+            text=label,
+            font=ModernTheme.get_font(ModernTheme.FONT_SIZE_MD),
+            text_color=ModernTheme.ON_SURFACE,
+            width=100
+        ).pack(side="left")
+        
+        # Контейнер для поля ввода и кнопок
+        spin_frame = ctk.CTkFrame(frame, fg_color="transparent")
+        spin_frame.pack(side="left", padx=(10, 0))
+        
+        # Поле ввода
+        entry = ctk.CTkEntry(
+            spin_frame,
+            textvariable=variable,
+            width=80,
+            font=ModernTheme.get_font(ModernTheme.FONT_SIZE_MD),
+            fg_color=ModernTheme.SURFACE_CONTAINER,
+            border_color=ModernTheme.OUTLINE,
+            justify="center"
+        )
+        entry.pack(side="left")
+        
+        # Кнопки +/-
+        btn_frame = ctk.CTkFrame(spin_frame, fg_color="transparent")
+        btn_frame.pack(side="left", padx=(5, 0))
+        
+        ctk.CTkButton(
+            btn_frame,
+            text="▲",
+            width=24,
+            height=18,
+            corner_radius=4,
+            font=ModernTheme.get_font(8),
+            fg_color=ModernTheme.SURFACE_CONTAINER,
+            hover_color=ModernTheme.SURFACE_CONTAINER_HIGH,
+            command=lambda: self._increment_var(variable, min_val, max_val)
+        ).pack()
+        
+        ctk.CTkButton(
+            btn_frame,
+            text="▼",
+            width=24,
+            height=18,
+            corner_radius=4,
+            font=ModernTheme.get_font(8),
+            fg_color=ModernTheme.SURFACE_CONTAINER,
+            hover_color=ModernTheme.SURFACE_CONTAINER_HIGH,
+            command=lambda: self._decrement_var(variable, min_val, max_val)
+        ).pack(pady=(2, 0))
+        
+        # Подсказка
+        ctk.CTkLabel(
+            frame,
+            text=hint,
+            font=ModernTheme.get_font(ModernTheme.FONT_SIZE_XS),
+            text_color=ModernTheme.ON_SURFACE_VARIANT
+        ).pack(side="left", padx=(15, 0))
+        
+    def _create_entry_param(self, parent: ctk.CTkFrame, label: str, variable, hint: str) -> None:
+        """
+        Создание строки с полем ввода для числового параметра.
+        
+        Args:
+            parent: Родительский фрейм.
+            label: Текст метки.
+            variable: Переменная tkinter для связи.
+            hint: Подсказка.
+        """
+        frame = ctk.CTkFrame(parent, fg_color="transparent")
+        frame.pack(fill="x", pady=8)
+        
+        # Метка параметра
+        ctk.CTkLabel(
+            frame,
+            text=label,
+            font=ModernTheme.get_font(ModernTheme.FONT_SIZE_MD),
+            text_color=ModernTheme.ON_SURFACE,
+            width=100
+        ).pack(side="left")
+        
+        # Поле ввода
+        entry = ctk.CTkEntry(
+            frame,
+            textvariable=variable,
+            width=100,
+            font=ModernTheme.get_font(ModernTheme.FONT_SIZE_MD),
+            fg_color=ModernTheme.SURFACE_CONTAINER,
+            border_color=ModernTheme.OUTLINE,
+            justify="center"
+        )
+        entry.pack(side="left", padx=(10, 0))
+        
+        # Подсказка
+        ctk.CTkLabel(
+            frame,
+            text=hint,
+            font=ModernTheme.get_font(ModernTheme.FONT_SIZE_XS),
+            text_color=ModernTheme.ON_SURFACE_VARIANT
+        ).pack(side="left", padx=(15, 0))
+        
+    def _create_combobox_param(self, parent: ctk.CTkFrame, label: str, variable, values: list, hint: str) -> None:
+        """
+        Создание строки с выпадающим списком для выбора значения.
+        
+        Args:
+            parent: Родительский фрейм.
+            label: Текст метки.
+            variable: Переменная tkinter для связи.
+            values: Список допустимых значений.
+            hint: Подсказка.
+        """
+        frame = ctk.CTkFrame(parent, fg_color="transparent")
+        frame.pack(fill="x", pady=8)
+        
+        # Метка параметра
+        ctk.CTkLabel(
+            frame,
+            text=label,
+            font=ModernTheme.get_font(ModernTheme.FONT_SIZE_MD),
+            text_color=ModernTheme.ON_SURFACE,
+            width=100
+        ).pack(side="left")
+        
+        # Выпадающий список
+        combo = ctk.CTkComboBox(
+            frame,
+            values=values,
+            variable=variable,
+            width=100,
+            font=ModernTheme.get_font(ModernTheme.FONT_SIZE_MD),
+            dropdown_font=ModernTheme.get_font(ModernTheme.FONT_SIZE_MD),
+            fg_color=ModernTheme.SURFACE_CONTAINER,
+            border_color=ModernTheme.OUTLINE,
+            button_color=ModernTheme.PRIMARY,
+            button_hover_color=ModernTheme.adjust_brightness(ModernTheme.PRIMARY, 1.1)
+        )
+        combo.pack(side="left", padx=(10, 0))
+        
+        # Подсказка
+        ctk.CTkLabel(
+            frame,
+            text=hint,
+            font=ModernTheme.get_font(ModernTheme.FONT_SIZE_XS),
+            text_color=ModernTheme.ON_SURFACE_VARIANT
+        ).pack(side="left", padx=(15, 0))
+        
+    def _create_readonly_param_row(self, parent: ctk.CTkFrame, name: str, value: str, description: str) -> None:
+        """
+        Создание строки с read-only параметром.
+        
+        Args:
+            parent: Родительский фрейм.
+            name: Название параметра.
+            value: Значение параметра.
+            description: Описание параметра.
+        """
+        row_frame = ctk.CTkFrame(parent, fg_color="transparent")
+        row_frame.pack(fill="x", pady=3)
+        
+        # Название параметра
+        ctk.CTkLabel(
+            row_frame,
+            text=name,
+            font=ModernTheme.get_font(ModernTheme.FONT_SIZE_SM),
+            text_color=ModernTheme.ON_SURFACE,
+            width=100
+        ).pack(side="left")
+        
+        # Значение (read-only поле)
+        value_frame = ctk.CTkFrame(
+            row_frame,
+            fg_color=ModernTheme.SURFACE_CONTAINER_LOW,
+            corner_radius=ModernTheme.RADIUS_SM,
+            width=80,
+            height=28
+        )
+        value_frame.pack(side="left", padx=(10, 0))
+        value_frame.pack_propagate(False)
+        
+        ctk.CTkLabel(
+            value_frame,
+            text=value,
+            font=ModernTheme.get_font(ModernTheme.FONT_SIZE_SM, "bold"),
+            text_color=ModernTheme.ON_SURFACE_VARIANT
+        ).place(relx=0.5, rely=0.5, anchor="center")
+        
+        # Описание
+        ctk.CTkLabel(
+            row_frame,
+            text=description,
+            font=ModernTheme.get_font(ModernTheme.FONT_SIZE_XS),
+            text_color=ModernTheme.ON_SURFACE_VARIANT
+        ).pack(side="left", padx=(15, 0))
+        
+    def _increment_var(self, variable, min_val: int, max_val: int) -> None:
+        """
+        Увеличение значения переменной с ограничением.
+        
+        Args:
+            variable: Переменная tkinter.
+            min_val: Минимальное значение.
+            max_val: Максимальное значение.
+        """
+        try:
+            current = variable.get()
+            if current < max_val:
+                variable.set(current + 1)
+        except (ValueError, tk.TclError):
+            pass
+            
+    def _decrement_var(self, variable, min_val: int, max_val: int) -> None:
+        """
+        Уменьшение значения переменной с ограничением.
+        
+        Args:
+            variable: Переменная tkinter.
+            min_val: Минимальное значение.
+            max_val: Максимальное значение.
+        """
+        try:
+            current = variable.get()
+            if current > min_val:
+                variable.set(current - 1)
+        except (ValueError, tk.TclError):
+            pass
+        
+    def _create_button_section(self, parent: ctk.CTkFrame) -> None:
+        """
+        Создание секции кнопок.
+        
+        Args:
+            parent: Родительский фрейм.
+        """
+        btn_frame = ctk.CTkFrame(parent, fg_color="transparent")
+        btn_frame.pack(fill="x", padx=20, pady=(10, 20))
+        
+        # Кнопка Применить
+        ctk.CTkButton(
+            btn_frame,
+            text="Применить",
+            command=self._apply_settings,
+            width=140,
+            height=40,
+            font=ModernTheme.get_font(ModernTheme.FONT_SIZE_MD, "bold"),
+            fg_color=ModernTheme.PRIMARY,
+            hover_color=ModernTheme.adjust_brightness(ModernTheme.PRIMARY, 1.1),
+            text_color=ModernTheme.ON_PRIMARY
+        ).pack(side="left", padx=(0, 10))
+        
+        # Кнопка Закрыть
+        ctk.CTkButton(
+            btn_frame,
+            text="Закрыть",
+            command=self._on_close,
+            width=120,
+            height=40,
+            font=ModernTheme.get_font(ModernTheme.FONT_SIZE_MD),
+            fg_color=ModernTheme.SURFACE_CONTAINER_HIGH,
+            hover_color=ModernTheme.adjust_brightness(ModernTheme.SURFACE_CONTAINER_HIGH, 1.1),
+            text_color=ModernTheme.ON_SURFACE
+        ).pack(side="left")
+        
+    def _apply_settings(self) -> None:
+        """
+        Применение настроек с валидацией.
+        
+        Валидирует значения параметров:
+        - Rdecimal: 0-4
+        - T_ratio: 1-9999
+        - P_units: "W" или "kW"
+        
+        Вызывает on_apply callback если установлен.
+        """
+        try:
+            # Валидация Rdecimal (0-4)
+            r_decimal = self.state.r_decimal.get()
+            if not (0 <= r_decimal <= 4):
+                messagebox.showerror(
+                    "Ошибка валидации",
+                    f"Rdecimal должен быть в диапазоне 0-4.\\nТекущее значение: {r_decimal}"
+                )
+                return
+            
+            # Валидация T_ratio (1-9999)
+            t_ratio = self.state.t_ratio.get()
+            if not (1 <= t_ratio <= 9999):
+                messagebox.showerror(
+                    "Ошибка валидации",
+                    f"T_ratio должен быть в диапазоне 1-9999.\\nТекущее значение: {t_ratio}"
+                )
+                return
+            
+            # Валидация P_units
+            p_units = self.state.p_units.get()
+            if p_units not in ["W", "kW"]:
+                messagebox.showerror(
+                    "Ошибка валидации",
+                    f"P_units должен быть 'W' или 'kW'.\\nТекущее значение: {p_units}"
+                )
+                return
+            
+            # Вызываем callback если есть
+            if self.on_apply:
+                self.on_apply()
+            
+            # Показываем подтверждение
+            messagebox.showinfo(
+                "Настройки применены",
+                f"Параметры датчика обновлены:\\n"
+                f"• Rdecimal: {r_decimal}\\n"
+                f"• T_ratio: {t_ratio}\\n"
+                f"• P_units: {p_units}"
+            )
+            
+        except (ValueError, tk.TclError) as e:
+            messagebox.showerror(
+                "Ошибка",
+                f"Ошибка при применении настроек:\\n{e}"
+            )

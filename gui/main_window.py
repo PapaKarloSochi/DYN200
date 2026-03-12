@@ -415,12 +415,12 @@ class MainWindow:
                     torque = self._to_signed32(torque_raw)
                     speed_raw = (registers[2] << 16) | registers[3]
                     power_raw = (registers[4] << 16) | registers[5]
-                    # Пересчет: torque / 1000 = Н·м, speed / 10 = RPM, power_raw = Вт (1:1)
+                    # Пересчет: torque / 100 = Н·м, speed = RPM (1:1), power_raw * 100 = Вт
                     from core.unit_conversion import raw_to_torque, raw_to_speed, raw_to_power
 
-torque_nm = raw_to_torque(torque)
-speed_rpm = raw_to_speed(speed_raw)
-power_w = raw_to_power(power_raw, self.power_correction.get())
+                    torque_nm = raw_to_torque(torque, self.power_correction.get())
+                    speed_rpm = raw_to_speed(speed_raw) * self.state.speed_coefficient.get()
+                    power_w = raw_to_power(power_raw, self.power_correction.get())
                     
                     self._add_data(torque_nm, speed_rpm, power_w, 'Modbus')
                 else:

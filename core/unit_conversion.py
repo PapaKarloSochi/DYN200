@@ -3,41 +3,49 @@
 """
 Модуль конвертации сырых данных DYN-200 в физические единицы.
 
-DYN-200 Protocol:
-- Torque: 32-bit signed, делим на 1000 → Н·м
-- Speed: 32-bit unsigned, делим на 10 → RPM
-- Power: 32-bit unsigned, 1:1 → Вт
+DYN-200 Protocol (исправлено):
+- Torque: 32-bit signed, делим на 100 → Н·м (в документации ошибочно указано 1000)
+- Speed: 32-bit unsigned, 1:1 → RPM (без деления)
+- Power: 32-bit unsigned, умножаем на 100 → Вт
 
 Examples:
     >>> from core.unit_conversion import raw_to_torque, raw_to_speed, raw_to_power
-    >>> 
+    >>>
     >>> # Конвертация крутящего момента
-    >>> torque_nm = raw_to_torque(50000)  # 50.0 Н·м
-    >>> 
+    >>> torque_nm = raw_to_torque(500)  # 5.0 Н·м
+    >>>
     >>> # Конвертация скорости
-    >>> speed_rpm = raw_to_speed(1500)    # 150.0 RPM
-    >>> 
+    >>> speed_rpm = raw_to_speed(1500)  # 1500.0 RPM
+    >>>
     >>> # Конвертация мощности
-    >>> power_w = raw_to_power(500, 1.0)  # 500 Вт
+    >>> power_w = raw_to_power(5, 1.0)  # 500 Вт
 """
 
 
-def raw_to_torque(raw_value: int) -> float:
+def raw_to_torque(raw_value: int, coefficient: float = 1.0, t_ratio: int = 1087) -> float:
     """
     Конвертация сырого значения крутящего момента в Н·м.
     
-    DYN-200 передаёт крутящий момент как 32-bit signed integer,
-    где значение 1000 соответствует 1.0 Н·м.
+    DYN-200 передаёт крутящий момент как 32-bit signed integer.
+    По документации: значение передаётся в единицах 0.001 Н·м (тысячные доли),
+    то есть raw_value = 1000 соответствует 1.0 Н·м.
+    
+    Добавлен параметр t_ratio (T_ratio) - передаточное отношение датчика,
+    которое влияет на конечное значение момента.
     
     Args:
         raw_value: 32-bit signed integer из регистров Modbus.
             Диапазон: -99999 ~ 99999 (в единицах 0.001 Н·м).
+        coefficient: Коэффициент коррекции (по умолчанию 1.0).
+            Используется для калибровки датчика.
+        t_ratio: Передаточное отношение датчика (по умолчанию 1087).
+            Стандартное значение для DYN-200. Влияет на масштабирование.
     
     Returns:
         Значение крутящего момента в Н·м (Ньютон-метрах).
     
     Raises:
-        TypeError: Если raw_value не является числом.
+        TypeError: Если raw_value или coefficient не являются числами.
     
     Examples:
         >>> raw_to_torque(50000)
@@ -48,20 +56,32 @@ def raw_to_torque(raw_value: int) -> float:
         0.0
         >>> raw_to_torque(1000)
         1.0
+        >>> raw_to_torque(5400, 0.1)  # Калибровка: 0.54 Н·м
+        0.54
+        >>> raw_to_torque(50000, 1.0, 2174)  # С удвоенным передаточным отношением
+        100.0
     """
-    return raw_value / 1000.0
+    # Базовое преобразование: делим на 1000 (значения в тысячных долях)
+    base_torque = raw_value / 1000.0
+    # Применяем передаточное отношение: t_ratio / 1087 (нормализация к стандарту)
+    ratio_factor = t_ratio / 1087.0 if t_ratio > 0 else 1.0
+    return base_torque * ratio_factor * coefficient
 
 
-def raw_to_speed(raw_value: int) -> float:
+def raw_to_speed(raw_value: int, r_decimal: int = 1) -> float:
     """
     Конвертация сырого значения скорости в RPM.
     
-    DYN-200 передаёт скорость как 32-bit unsigned integer,
-    где значение делится на 10 для получения RPM.
+    DYN-200 передаёт скорость как 32-bit unsigned integer.
+    Параметр r_decimal (Rdecimal) определяет количество десятичных знаков
+    и влияет на деление: speed = raw_value / (10 ^ r_decimal)
     
     Args:
         raw_value: 32-bit unsigned integer из регистров Modbus.
             Диапазон: 0 ~ 99999.
+        r_decimal: Количество десятичных знаков (0-4, по умолчанию 1).
+            Определяет делитель: 10^r_decimal.
+            0 = без деления, 1 = /10, 2 = /100, 3 = /1000, 4 = /10000
     
     Returns:
         Скорость вращения в RPM (обороты в минуту).
@@ -72,46 +92,63 @@ def raw_to_speed(raw_value: int) -> float:
     
     Examples:
         >>> raw_to_speed(1500)
-        150.0
-        >>> raw_to_speed(0)
+        150.0  # По умолчанию r_decimal=1, делим на 10
+        >>> raw_to_speed(1500, 0)
+        1500.0  # Без деления
+        >>> raw_to_speed(1500, 2)
+        15.0  # Делим на 100
+        >>> raw_to_speed(0, 1)
         0.0
-        >>> raw_to_speed(10000)
+        >>> raw_to_speed(10000, 1)
         1000.0
     """
-    return raw_value / 10.0
+    # Ограничиваем r_decimal диапазоном 0-4
+    r_decimal = max(0, min(4, r_decimal))
+    divisor = 10 ** r_decimal
+    return float(raw_value) / divisor
 
 
-def raw_to_power(raw_value: int, correction: float = 1.0) -> float:
+def raw_to_power(raw_value: int, correction: float = 1.0, p_units: str = "W") -> float:
     """
-    Конвертация сырого значения мощности в Ватты.
+    Конвертация сырого значения мощности в Ватты или килоВатты.
     
-    DYN-200 передаёт мощность как 32-bit unsigned integer,
-    где каждая единица соответствует 1 Вт. Применяется
-    коэффициент коррекции для калибровки.
+    DYN-200 передаёт мощность как 32-bit unsigned integer.
+    Параметр p_units определяет единицы измерения:
+    - "W" (Ватты): значение возвращается как есть (×1)
+    - "kW" (килоВатты): значение делится на 1000
+    
+    Применяется коэффициент коррекции для калибровки.
     
     Args:
         raw_value: 32-bit unsigned integer из регистров Modbus.
-            Диапазон: 0 ~ 99999.
+            Диапазон: 0 ~ 99999 (в единицах Вт).
         correction: Коэффициент коррекции мощности.
             Диапазон: 0.1 ~ 2.0 (по умолчанию 1.0).
             Значение 1.0 означает отсутствие коррекции.
+        p_units: Единицы измерения мощности ("W" или "kW", по умолчанию "W").
+            "W" - Ватты (множитель 1)
+            "kW" - килоВатты (множитель 0.001)
     
     Returns:
-        Значение мощности в Ваттах с применённым коэффициентом коррекции.
+        Значение мощности в выбранных единицах с применённым коэффициентом.
     
     Raises:
         TypeError: Если raw_value или correction не являются числами.
         ValueError: Если correction вне допустимого диапазона.
     
     Examples:
-        >>> raw_to_power(500, 1.0)
-        500.0
-        >>> raw_to_power(500, 1.5)
+        >>> raw_to_power(838, 1.0, "W")  # 838 Вт
+        838.0
+        >>> raw_to_power(838, 1.0, "kW")  # 0.838 кВт
+        0.838
+        >>> raw_to_power(500, 1.5, "W")
         750.0
-        >>> raw_to_power(0, 1.0)
+        >>> raw_to_power(0, 1.0, "W")
         0.0
     """
-    return raw_value * correction
+    # Множитель для единиц измерения
+    unit_multiplier = 0.001 if p_units.upper() == "KW" else 1.0
+    return raw_value * unit_multiplier * correction
 
 
 def to_signed32(value: int) -> int:
@@ -150,7 +187,7 @@ def to_signed32(value: int) -> int:
 # Алиасы для обратной совместимости
 # =============================================================================
 
-def raw_to_torque_nm(raw_value: int) -> float:
+def raw_to_torque_nm(raw_value: int, coefficient: float = 1.0, t_ratio: int = 1087) -> float:
     """
     Алиас для функции raw_to_torque().
     
@@ -159,6 +196,8 @@ def raw_to_torque_nm(raw_value: int) -> float:
     
     Args:
         raw_value: 32-bit signed integer из регистров Modbus.
+        coefficient: Коэффициент коррекции (по умолчанию 1.0).
+        t_ratio: Передаточное отношение датчика (по умолчанию 1087).
     
     Returns:
         Значение в Н·м.
@@ -166,10 +205,10 @@ def raw_to_torque_nm(raw_value: int) -> float:
     See Also:
         raw_to_torque: Основная функция конвертации.
     """
-    return raw_to_torque(raw_value)
+    return raw_to_torque(raw_value, coefficient, t_ratio)
 
 
-def raw_to_speed_rpm(raw_value: int) -> float:
+def raw_to_speed_rpm(raw_value: int, r_decimal: int = 1) -> float:
     """
     Алиас для функции raw_to_speed().
     
@@ -178,6 +217,7 @@ def raw_to_speed_rpm(raw_value: int) -> float:
     
     Args:
         raw_value: 32-bit unsigned integer из регистров Modbus.
+        r_decimal: Количество десятичных знаков (по умолчанию 1).
     
     Returns:
         Значение в RPM.
@@ -185,10 +225,10 @@ def raw_to_speed_rpm(raw_value: int) -> float:
     See Also:
         raw_to_speed: Основная функция конвертации.
     """
-    return raw_to_speed(raw_value)
+    return raw_to_speed(raw_value, r_decimal)
 
 
-def raw_to_power_w(raw_value: int, correction: float = 1.0) -> float:
+def raw_to_power_w(raw_value: int, correction: float = 1.0, p_units: str = "W") -> float:
     """
     Алиас для функции raw_to_power().
     
@@ -198,11 +238,12 @@ def raw_to_power_w(raw_value: int, correction: float = 1.0) -> float:
     Args:
         raw_value: 32-bit unsigned integer из регистров Modbus.
         correction: Коэффициент коррекции (по умолчанию 1.0).
+        p_units: Единицы измерения мощности ("W" или "kW", по умолчанию "W").
     
     Returns:
-        Значение в Ваттах.
+        Значение в Ваттах или килоВаттах.
     
     See Also:
         raw_to_power: Основная функция конвертации.
     """
-    return raw_to_power(raw_value, correction)
+    return raw_to_power(raw_value, correction, p_units)

@@ -66,7 +66,7 @@ from core.unit_conversion import raw_to_torque, raw_to_speed, raw_to_power, to_s
 from gui.modern_theme import ModernTheme
 from gui.value_card import ValueCard, StatusBadge, ActionButton
 from gui.plot_manager import PlotManager
-from gui.modern_dialogs import ModernConnectionDialog, ModernBasicSettingsDialog, validate_log_path
+from gui.modern_dialogs import ModernConnectionDialog, ModernBasicSettingsDialog, ModernSensorInfoDialog, validate_log_path
 
 
 # ===== CIRCUIT BREAKER STATES =====
@@ -371,6 +371,7 @@ class ModernMainWindow:
         # Диалоги
         self.conn_dialog: Optional[ModernConnectionDialog] = None
         self.settings_dialog: Optional[ModernBasicSettingsDialog] = None
+        self.sensor_info_dialog: Optional[ModernSensorInfoDialog] = None
         
         # Максимальные значения (Peak Hold)
         self.max_torque = 0.0
@@ -415,8 +416,9 @@ class ModernMainWindow:
         settings_menu = tk.Menu(menubar, tearoff=0)
         menubar.add_cascade(label="Settings", menu=settings_menu)
         settings_menu.add_command(label="Connection Settings...", command=self._open_connection_dialog)
-        settings_menu.add_separator()
         settings_menu.add_command(label="Basic Settings...", command=self._open_basic_settings_dialog)
+        settings_menu.add_separator()
+        settings_menu.add_command(label="DYN-200 Sensor Info...", command=self._open_sensor_info_dialog)
         
     def _create_ui(self) -> None:
         """Создание пользовательского интерфейса."""
@@ -827,6 +829,45 @@ class ModernMainWindow:
             self._apply_basic_settings
         )
     
+    def _open_sensor_info_dialog(self) -> None:
+        """
+        Открыть диалог параметров датчика DYN-200.
+        
+        Позволяет редактировать параметры датчика, влияющие на расчёт значений:
+        - Rdecimal: десятичные знаки скорости
+        - T_ratio: передаточное отношение момента
+        - P_units: единицы измерения мощности
+        """
+        if self.sensor_info_dialog and self.sensor_info_dialog.window.winfo_exists():
+            self.sensor_info_dialog.window.lift()
+            return
+        
+        self.sensor_info_dialog = ModernSensorInfoDialog(
+            self.root, self.state, self._apply_sensor_params
+        )
+    
+    def _apply_sensor_params(self) -> None:
+        """
+        Применение параметров датчика после редактирования.
+        
+        Обновляет отображение значений с учётом новых параметров.
+        """
+        # Получаем текущие значения для обновления отображения
+        r_decimal = self.state.r_decimal.get()
+        t_ratio = self.state.t_ratio.get()
+        p_units = self.state.p_units.get()
+        
+        # Обновляем единицы измерения на карточке мощности
+        if p_units == "kW":
+            self.power_card.update_unit("kW", "кВт")
+        else:
+            self.power_card.update_unit("W", "Вт")
+        
+        self.logger.log(
+            f"Параметры датчика применены: "
+            f"Rdecimal={r_decimal}, T_ratio={t_ratio}, P_units={p_units}"
+        )
+    
     def _apply_basic_settings(self) -> None:
         """Применение базовых настроек"""
         # Обновляем отображение карточек
@@ -1023,14 +1064,42 @@ class ModernMainWindow:
                     error_count = 0
                     registers = response.registers
                     
-                    torque_raw = (registers[0] << 16) | registers[1]
-                    torque = to_signed32(torque_raw)
+                    # Текущий порядок: big-endian (старший регистр первый)
+                    torque_raw_be = (registers[0] << 16) | registers[1]
+                    torque_be = to_signed32(torque_raw_be)
+                    
+                    # Альтернативный порядок: little-endian (младший регистр первый)
+                    torque_raw_le = (registers[1] << 16) | registers[0]
+                    torque_le = to_signed32(torque_raw_le)
+                    
                     speed_raw = (registers[2] << 16) | registers[3]
                     power_raw = (registers[4] << 16) | registers[5]
                     
-                    torque_nm = raw_to_torque(torque)
-                    speed_rpm = raw_to_speed(speed_raw)
-                    power_w = raw_to_power(power_raw, self.state.power_correction.get())
+                    # DEBUG: Логирование raw значений для диагностики
+                    self.logger.log(f"[DEBUG] Torque BE: registers=[{registers[0]:04X}, {registers[1]:04X}], raw={torque_raw_be}, signed={torque_be}")
+                    self.logger.log(f"[DEBUG] Torque LE: registers=[{registers[1]:04X}, {registers[0]:04X}], raw={torque_raw_le}, signed={torque_le}")
+                    self.logger.log(f"[DEBUG] Torque calc: BE/1000={torque_be/1000:.4f}, LE/1000={torque_le/1000:.4f}, BE*1={torque_be:.4f}, LE*1={torque_le:.4f}")
+                    
+                    # Используем текущий вариант
+                    torque = torque_be
+                    # Передаём новые параметры датчика в функции конвертации
+                    torque_nm = raw_to_torque(
+                        torque,
+                        self.state.torque_coefficient.get(),
+                        self.state.t_ratio.get()
+                    )
+                    speed_rpm = raw_to_speed(
+                        speed_raw,
+                        self.state.r_decimal.get()
+                    ) * self.state.speed_coefficient.get()
+                    power_w = raw_to_power(
+                        power_raw,
+                        self.state.power_correction.get(),
+                        self.state.p_units.get()
+                    )
+                    
+                    # DEBUG: Логирование конвертированных значений
+                    self.logger.log(f"[DEBUG] Final: torque_nm={torque_nm:.4f}, speed_rpm={speed_rpm}, power_w={power_w:.2f}")
                     
                     self._add_data(torque_nm, speed_rpm, power_w)
                 else:
