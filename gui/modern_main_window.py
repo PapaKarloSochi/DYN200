@@ -1075,19 +1075,61 @@ class ModernMainWindow:
                     speed_raw = (registers[2] << 16) | registers[3]
                     power_raw = (registers[4] << 16) | registers[5]
                     
-                    # DEBUG: Логирование raw значений для диагностики
-                    self.logger.log(f"[DEBUG] Torque BE: registers=[{registers[0]:04X}, {registers[1]:04X}], raw={torque_raw_be}, signed={torque_be}")
-                    self.logger.log(f"[DEBUG] Torque LE: registers=[{registers[1]:04X}, {registers[0]:04X}], raw={torque_raw_le}, signed={torque_le}")
-                    self.logger.log(f"[DEBUG] Torque calc: BE/1000={torque_be/1000:.4f}, LE/1000={torque_le/1000:.4f}, BE*1={torque_be:.4f}, LE*1={torque_le:.4f}")
+                    # ============================================================================
+                    # EXTENDED DEBUG: Детальное логирование torque для диагностики расхождения
+                    # ============================================================================
+                    self.logger.log("=" * 70)
+                    self.logger.log("[TORQUE DEBUG] ===== НАЧАЛО ОБРАБОТКИ TORQUE =====")
                     
-                    # Используем текущий вариант
+                    # 1. Raw регистры из Modbus
+                    self.logger.log(f"[TORQUE DEBUG] Raw registers from Modbus: [{registers[0]:04X}, {registers[1]:04X}] = [{registers[0]}, {registers[1]}]")
+                    
+                    # 2. Сборка 32-bit значений (BE vs LE)
+                    self.logger.log(f"[TORQUE DEBUG] 32-bit Big-Endian:    raw=0x{torque_raw_be:08X} ({torque_raw_be})")
+                    self.logger.log(f"[TORQUE DEBUG] 32-bit Little-Endian: raw=0x{torque_raw_le:08X} ({torque_raw_le})")
+                    
+                    # 3. Применение to_signed32
+                    self.logger.log(f"[TORQUE DEBUG] After to_signed32 BE: {torque_be}")
+                    self.logger.log(f"[TORQUE DEBUG] After to_signed32 LE: {torque_le}")
+                    
+                    # 4. Тестовые деления для понимания масштаба
+                    self.logger.log(f"[TORQUE DEBUG] --- Варианты деления для torque_be={torque_be} ---")
+                    self.logger.log(f"[TORQUE DEBUG]   /10   = {torque_be/10:.4f} (используется - десятые доли)")
+                    self.logger.log(f"[TORQUE DEBUG]   /100  = {torque_be/100:.4f}")
+                    self.logger.log(f"[TORQUE DEBUG]   /1000 = {torque_be/1000:.4f}")
+                    
+                    # Используем текущий вариант (BE)
                     torque = torque_be
-                    # Передаём новые параметры датчика в функции конвертации
-                    torque_nm = raw_to_torque(
-                        torque,
-                        self.state.torque_coefficient.get(),
-                        self.state.t_ratio.get()
-                    )
+                    self.logger.log(f"[TORQUE DEBUG] Выбрано значение: torque = {torque}")
+                    
+                    # 5. Получение параметров из state
+                    coef = self.state.torque_coefficient.get()
+                    t_ratio = self.state.t_ratio.get()
+                    
+                    self.logger.log(f"[TORQUE DEBUG] --- ПАРАМЕТРЫ ИЗ STATE ---")
+                    self.logger.log(f"[TORQUE DEBUG]   torque_coefficient = {coef} (type: {type(coef).__name__})")
+                    self.logger.log(f"[TORQUE DEBUG]   t_ratio            = {t_ratio} (type: {type(t_ratio).__name__})")
+                    
+                    # 6. Ручной расчёт по формуле для проверки
+                    base_torque = torque / 100.0
+                    ratio_factor = t_ratio / 1087.0 if t_ratio > 0 else 1.0
+                    manual_calc = base_torque * ratio_factor * coef
+                    
+                    self.logger.log(f"[TORQUE DEBUG] --- РУЧНОЙ РАСЧЁТ ФОРМУЛЫ ---")
+                    self.logger.log(f"[TORQUE DEBUG]   base_torque  = {torque} / 100.0 = {base_torque:.4f}")
+                    self.logger.log(f"[TORQUE DEBUG]   ratio_factor = {t_ratio} / 1087.0 = {ratio_factor:.6f}")
+                    self.logger.log(f"[TORQUE DEBUG]   manual_calc  = {base_torque:.4f} * {ratio_factor:.6f} * {coef} = {manual_calc:.4f}")
+                    
+                    # 7. Вызов функции конвертации
+                    torque_nm = raw_to_torque(torque, coef, t_ratio)
+                    
+                    self.logger.log(f"[TORQUE DEBUG] --- РЕЗУЛЬТАТ ---")
+                    self.logger.log(f"[TORQUE DEBUG]   raw_to_torque() вернула: {torque_nm:.4f} Н·м")
+                    self.logger.log(f"[TORQUE DEBUG]   Ожидаемое (дисплей):    ~1.1-1.3 Н·м")
+                    self.logger.log(f"[TORQUE DEBUG]   Расхождение:            {torque_nm/1.2:.1f}x (если ожидается 1.2)")
+                    self.logger.log("[TORQUE DEBUG] ===== КОНЕЦ ОБРАБОТКИ TORQUE =====")
+                    self.logger.log("=" * 70)
+                    # ============================================================================
                     speed_rpm = raw_to_speed(
                         speed_raw,
                         self.state.r_decimal.get()
@@ -1098,10 +1140,14 @@ class ModernMainWindow:
                         self.state.p_units.get()
                     )
                     
-                    # DEBUG: Логирование конвертированных значений
-                    self.logger.log(f"[DEBUG] Final: torque_nm={torque_nm:.4f}, speed_rpm={speed_rpm}, power_w={power_w:.2f}")
-                    
-                    self._add_data(torque_nm, speed_rpm, power_w)
+                    # Передаём raw-данные для полноценного логирования
+                    self._add_data(
+                        torque_nm, speed_rpm, power_w,
+                        torque_raw=torque_be,
+                        speed_raw=speed_raw,
+                        power_raw=power_raw,
+                        registers=registers[:6]
+                    )
                 else:
                     error_count += 1
                     if error_count > 10:
@@ -1120,7 +1166,10 @@ class ModernMainWindow:
                     return
                 time.sleep(1)
     
-    def _add_data(self, torque: float, speed: float, power: float) -> None:
+    def _add_data(self, torque: float, speed: float, power: float,
+                  torque_raw: Optional[int] = None, speed_raw: Optional[int] = None,
+                  power_raw: Optional[int] = None,
+                  registers: Optional[list] = None) -> None:
         """
         Добавление данных в очередь.
         
@@ -1128,6 +1177,10 @@ class ModernMainWindow:
             torque: Крутящий момент в Н·м
             speed: Скорость в RPM
             power: Мощность в Вт
+            torque_raw: Raw значение torque из Modbus (32-bit signed)
+            speed_raw: Raw значение speed из Modbus (32-bit unsigned)
+            power_raw: Raw значение power из Modbus (32-bit unsigned)
+            registers: Список raw регистров Modbus [R0, R1, R2, R3, R4, R5]
         """
         timestamp = datetime.now()
         self.state.append_data(timestamp, torque, speed, power)
@@ -1138,7 +1191,42 @@ class ModernMainWindow:
         # Логирование в CSV
         if self.state.is_logging and self.csv_writer:
             timestamp_str = timestamp.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
-            self.csv_writer.writerow([timestamp_str, torque, speed, power, 'Modbus'])
+            
+            # Подготавливаем данные для логирования
+            row = [timestamp_str, torque, speed, power]
+            
+            # Raw значения (если доступны)
+            if torque_raw is not None:
+                row.append(torque_raw)
+            else:
+                row.append('')
+            if speed_raw is not None:
+                row.append(speed_raw)
+            else:
+                row.append('')
+            if power_raw is not None:
+                row.append(power_raw)
+            else:
+                row.append('')
+            
+            # Регистры Modbus (если доступны)
+            if registers and len(registers) >= 6:
+                row.extend(registers[:6])
+            else:
+                row.extend(['', '', '', '', '', ''])
+            
+            # Параметры датчика
+            row.extend([
+                self.state.r_decimal.get(),
+                self.state.t_ratio.get(),
+                self.state.p_units.get(),
+                self.state.torque_coefficient.get(),
+                self.state.speed_coefficient.get(),
+                self.state.power_correction.get(),
+                'Modbus'
+            ])
+            
+            self.csv_writer.writerow(row)
             try:
                 self.log_file.flush()
             except:
@@ -1209,40 +1297,58 @@ class ModernMainWindow:
     
     def _start_reading(self) -> None:
         """
-        Требование 2 & 3: Начать/продолжить считывание данных.
+        Начать считывание данных.
         
-        При повторном нажатии после остановки - данные продолжают накапливаться
-        (график продолжается, а не начинается заново).
+        Сценарий 1: Стоп → Старт (возобновление)
+        - Если поток жив → очищаем stop_thread, is_reading = True
+        - График продолжает строиться с того же места
+        
+        Сценарий 2: Сброс → Старт (новый поток)
+        - Если поток мёртв → создаём новый поток
+        - График начинается сначала
         """
         if not self.state.is_connected:
             self.logger.log("Нет подключения к датчику")
             return
-            
-        self.state.is_reading = True
-        self.stop_thread.clear()
+        
+        # Проверяем, существует ли поток и жив ли он
+        if self.read_thread is not None and self.read_thread.is_alive():
+            # Сценарий 1: Поток жив - возобновляем чтение (Стоп → Старт)
+            self.stop_thread.clear()
+            self.state.is_reading = True
+            self.logger.log("Возобновление считывания (поток продолжает работу)")
+        else:
+            # Сценарий 2: Поток мёртв - создаём новый (Сброс → Старт)
+            self.logger.log("Создание нового потока чтения...")
+            self.stop_thread.clear()
+            self.read_thread = threading.Thread(target=self._modbus_read_loop)
+            self.read_thread.daemon = True
+            self.read_thread.start()
+            self.state.is_reading = True
         
         # Обновляем кнопки
         self.start_btn.configure(state="disabled")
         self.stop_btn.configure(state="normal")
         self.state.reading_status.set("производится")
         
-        self.logger.log("Считывание данных начато (продолжено)")
+        self.logger.log("Считывание данных начато")
     
     def _stop_reading(self) -> None:
         """
-        Требование 3: Остановить (приостановить) считывание данных.
+        Остановить считывание данных (пауза, поток продолжает работать).
         
-        Данные сохраняются, при повторном старте график продолжится.
+        Данные сохраняются, поток чтения продолжает работать в idle-режиме.
+        Для возобновления считывания достаточно нажать Старт снова.
         """
         self.state.is_reading = False
-        self.stop_thread.set()
+        # НЕ вызываем stop_thread.set() - поток должен продолжить работу в idle-режиме
         
         # Обновляем кнопки
         self.start_btn.configure(state="normal")
         self.stop_btn.configure(state="disabled")
         self.state.reading_status.set("остановлено")
         
-        self.logger.log("Считывание данных остановлено (пауза)")
+        self.logger.log("Считывание данных приостановлено (пауза)")
     
     def _disconnect(self) -> None:
         """Отключение от датчика"""
@@ -1272,10 +1378,26 @@ class ModernMainWindow:
             try:
                 self.log_file = open(filename, 'w', newline='', encoding='utf-8')
                 self.csv_writer = csv.writer(self.log_file)
-                self.csv_writer.writerow(['Timestamp', 'Torque_Nm', 'Speed_RPM', 'Power_W', 'Mode'])
+                # Расширенные заголовки с raw-данными и параметрами
+                headers = [
+                    # Базовые измеренные значения
+                    'Timestamp', 'Torque_Nm', 'Speed_RPM', 'Power_W',
+                    # Raw значения из Modbus
+                    'Torque_Raw', 'Speed_Raw', 'Power_Raw',
+                    # Регистры Modbus
+                    'Reg_0', 'Reg_1', 'Reg_2', 'Reg_3', 'Reg_4', 'Reg_5',
+                    # Параметры датчика
+                    'R_Decimal', 'T_Ratio', 'P_Units',
+                    # Коэффициенты
+                    'Torque_Coef', 'Speed_Coef', 'Power_Correction',
+                    # Режим
+                    'Mode'
+                ]
+                self.csv_writer.writerow(headers)
                 self.state.is_logging = True
-                self.log_btn.configure(text="⏹ Стоп лог", variant="secondary")
+                self.log_btn.configure(text="⏹ Стоп лог")
                 self.logger.log(f"Логирование начато: {filename}")
+                self.logger.log(f"Столбцы: Timestamp, Torque_Nm, Speed_RPM, Power_W, Torque_Raw, Speed_Raw, Power_Raw, Reg_0-5, R_Decimal, T_Ratio, P_Units, Coefs, Mode")
             except Exception as e:
                 messagebox.showerror("Ошибка", f"Не удалось создать файл: {e}")
     
@@ -1294,27 +1416,42 @@ class ModernMainWindow:
     
     def _reset_all(self) -> None:
         """
-        Требование 2 & 3: Полный сброс - очищает график, все данные и максимумы.
+        Полный сброс - останавливает поток, очищает данные и сбрасывает максимумы.
         
         Эта кнопка полностью сбрасывает состояние:
+        - Полностью останавливает поток чтения (stop_thread.set() + join())
+        - Создаёт новый поток при следующем Старт
         - Очищает все накопленные данные
         - Очищает график
         - Сбрасывает максимальные значения
-        - Останавливает считывание если было активно
         """
-        # Останавливаем считывание если активно
-        was_reading = self.state.is_reading
-        if was_reading:
-            self._stop_reading()
+        # Полностью останавливаем поток чтения
+        self.stop_thread.set()
+        self.state.is_reading = False
+        
+        # Ждем завершения потока (полная остановка)
+        if self.read_thread and self.read_thread.is_alive():
+            try:
+                self.logger.log("[RESET] Ожидание завершения потока...")
+                self.read_thread.join(timeout=2.0)
+                if self.read_thread.is_alive():
+                    self.logger.log("[RESET] Внимание: поток не завершился за 2 секунды")
+            except Exception as e:
+                self.logger.log(f"[RESET] Ошибка ожидания потока: {e}")
         
         # Очищаем данные
         self.state.clear_data()
         self.plot_manager.clear_plots()
         
-        # Требование 3: Сбрасываем максимальные значения
+        # Сбрасываем максимальные значения
         self._reset_max_values_internal()
         
-        self.logger.log("Полный сброс выполнен (данные, график, максимумы)")
+        # Обновляем UI кнопок
+        self.start_btn.configure(state="normal")
+        self.stop_btn.configure(state="disabled")
+        self.state.reading_status.set("остановлено")
+        
+        self.logger.log("Полный сброс выполнен (поток остановлен, данные очищены, максимумы сброшены)")
     
     def _reset_max_values_internal(self) -> None:
         """Внутренний метод сброса максимальных значений (без лога)"""

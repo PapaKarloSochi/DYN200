@@ -26,9 +26,9 @@ class TestRawToTorque:
     """Тесты для функции raw_to_torque"""
     
     def test_raw_to_torque_positive(self):
-        """Тест конвертации положительного значения (деление на 1000)"""
-        result = raw_to_torque(1000)
-        assert result == 1.0  # 1000 / 1000 = 1.0 Н·м
+        """Тест конвертации положительного значения (деление на 10)"""
+        result = raw_to_torque(13)
+        assert result == 1.3  # 13 / 10 = 1.3 Н·м (соответствует показаниям дисплея)
         assert isinstance(result, float)
     
     def test_raw_to_torque_zero(self):
@@ -39,36 +39,68 @@ class TestRawToTorque:
     
     def test_raw_to_torque_negative(self):
         """Тест конвертации отрицательного значения"""
-        result = raw_to_torque(-5000)
-        assert result == -5.0  # -5000 / 1000 = -5.0 Н·м
+        result = raw_to_torque(-50)
+        assert result == -5.0  # -50 / 10 = -5.0 Н·м
         assert isinstance(result, float)
     
     def test_raw_to_torque_large_positive(self):
         """Тест конвертации большого положительного значения"""
-        result = raw_to_torque(50000)
-        assert result == 50.0  # 50000 / 1000 = 50.0 Н·м
+        result = raw_to_torque(500)
+        assert result == 50.0  # 500 / 10 = 50.0 Н·м
     
     def test_raw_to_torque_large_negative(self):
         """Тест конвертации большого отрицательного значения"""
-        result = raw_to_torque(-100000)
-        assert result == -100.0  # -100000 / 1000 = -100.0 Н·м
+        result = raw_to_torque(-1000)
+        assert result == -100.0  # -1000 / 10 = -100.0 Н·м
     
     def test_raw_to_torque_fractional(self):
         """Тест конвертации дробного результата"""
-        result = raw_to_torque(1234)
-        assert result == 1.234  # 1234 / 1000 = 1.234 Н·м
+        result = raw_to_torque(123)
+        assert result == 12.3  # 123 / 10 = 12.3 Н·м
     
     def test_raw_to_torque_with_coefficient(self):
         """Тест с коэффициентом коррекции"""
-        # Если raw=1200 (1.2 Н·м), а на дисплее показывает 1.2, то coefficient=1.0
-        result = raw_to_torque(1200, coefficient=1.0)
-        assert pytest.approx(result, 0.0001) == 1.2  # (1200 / 1000) * 1.0 = 1.2
+        # Если raw=12 (1.2 Н·м), а на дисплее показывает 1.2, то coefficient=1.0
+        result = raw_to_torque(12, coefficient=1.0)
+        assert pytest.approx(result, 0.0001) == 1.2  # (12 / 10) * 1.0 = 1.2
+
+    def test_raw_to_torque_display_value_1_3_nm(self):
+        """
+        Тест для проверки соответствия показаниям дисплея датчика.
+        
+        На дисплее датчика: 1.3 Н·м
+        Raw значение из Modbus: ~13 (в десятых долях)
+        Ожидаемый результат: 1.3 Н·м
+        """
+        # При raw=13 должно получиться 1.3 Н·м (13 / 10 = 1.3)
+        result = raw_to_torque(13, coefficient=1.0, t_ratio=1087)
+        assert pytest.approx(result, 0.01) == 1.3, f"Expected 1.3 N·m, got {result}"
+        
+        # Проверка диапазона 1.1-1.3 Н·м
+        result_11 = raw_to_torque(11, coefficient=1.0, t_ratio=1087)
+        result_13 = raw_to_torque(13, coefficient=1.0, t_ratio=1087)
+        assert pytest.approx(result_11, 0.01) == 1.1, f"Expected 1.1 N·m for raw=11, got {result_11}"
+        assert pytest.approx(result_13, 0.01) == 1.3, f"Expected 1.3 N·m for raw=13, got {result_13}"
+
+    def test_raw_to_torque_t_ratio_effect(self):
+        """
+        Тест влияния t_ratio на результат.
+        
+        При t_ratio=1087 множитель = 1.0
+        При t_ratio=2174 множитель = 2.0 (удвоенное значение)
+        """
+        raw = 13
+        result_default = raw_to_torque(raw, coefficient=1.0, t_ratio=1087)
+        result_doubled = raw_to_torque(raw, coefficient=1.0, t_ratio=2174)
+        
+        assert pytest.approx(result_default, 0.01) == 1.3  # 13/10*1.0 = 1.3
+        assert pytest.approx(result_doubled, 0.01) == 2.6  # 13/10*2.0 = 2.6 (должно удвоиться)
     
     def test_raw_to_torque_alias(self):
         """Тест алиаса raw_to_torque_nm"""
-        result = raw_to_torque_nm(2000)
-        assert result == 2.0  # 2000 / 1000 = 2.0 Н·м
-        assert raw_to_torque_nm(1000) == raw_to_torque(1000)
+        result = raw_to_torque_nm(20)
+        assert result == 2.0  # 20 / 10 = 2.0 Н·м
+        assert raw_to_torque_nm(10) == raw_to_torque(10)
 
 
 class TestRawToSpeed:
@@ -187,7 +219,7 @@ class TestEdgeCases:
     def test_raw_to_torque_boundary_32bit(self):
         """Тест максимального 32-bit значения"""
         result = raw_to_torque(2147483647)
-        assert result == 2147483.647  # Делим на 1000
+        assert result == 214748364.7  # Делим на 10
     
     def test_raw_to_speed_zero_boundary(self):
         """Тест границы нуля (1:1 соответствие)"""
@@ -202,14 +234,15 @@ class TestEdgeCases:
     def test_chained_conversion(self):
         """Тест цепочки конверсий (типичный use case)"""
         # Симуляция чтения из Modbus
+        # raw=12 → 1.2 Н·м (деление на 10)
         raw_high = 0x0000
-        raw_low = 0x04B0  # 1200 в десятичном (1200 / 1000 = 1.2 Н·м)
+        raw_low = 0x000C  # 12 в десятичном (12 / 10 = 1.2 Н·м)
         raw_32bit = (raw_high << 16) | raw_low
         
         signed = to_signed32(raw_32bit)
         torque = raw_to_torque(signed)
         
-        assert signed == 1200
+        assert signed == 12
         assert torque == 1.2
 
 

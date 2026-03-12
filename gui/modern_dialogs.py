@@ -1148,8 +1148,10 @@ class ModernSensorInfoDialog(ModernDialogBase):
         # Текст подсказки
         info_text = ctk.CTkLabel(
             banner,
-            text="Изменение этих параметров повлияет на расчёт отображаемых значений.\\n" +
-                 "Rdecimal - десятичные знаки скорости, T_ratio - передаточное отношение, P_units - единицы мощности.",
+            text="Изменение этих параметров повлияет на расчёт отображаемых значений:\n" +
+                 "• Rdecimal — десятичные знаки скорости\n" +
+                 "• T_ratio — передаточное отношение\n" +
+                 "• P_units — единицы измерения мощности",
             font=ModernTheme.get_font(ModernTheme.FONT_SIZE_SM),
             text_color=ModernTheme.ON_SURFACE_VARIANT,
             justify="left"
@@ -1231,7 +1233,7 @@ class ModernSensorInfoDialog(ModernDialogBase):
         
         ctk.CTkLabel(
             section_header,
-            text="Текущие настройки датчика (только для просмотра)",
+            text="Параметры подключения и информация о датчике",
             font=ModernTheme.get_font(ModernTheme.FONT_SIZE_SM),
             text_color=ModernTheme.ON_SURFACE_VARIANT
         ).pack(anchor="w", pady=(2, 0))
@@ -1440,7 +1442,7 @@ class ModernSensorInfoDialog(ModernDialogBase):
         # Значение (read-only поле)
         value_frame = ctk.CTkFrame(
             row_frame,
-            fg_color=ModernTheme.SURFACE_CONTAINER_LOW,
+            fg_color=ModernTheme.SURFACE_VARIANT,
             corner_radius=ModernTheme.RADIUS_SM,
             width=80,
             height=28

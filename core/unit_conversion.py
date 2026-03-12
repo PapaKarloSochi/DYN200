@@ -4,9 +4,16 @@
 Модуль конвертации сырых данных DYN-200 в физические единицы.
 
 DYN-200 Protocol (исправлено):
-- Torque: 32-bit signed, делим на 100 → Н·м (в документации ошибочно указано 1000)
+- Torque: 32-bit signed, делим на 10 → Н·м (значения в десятых долях)
 - Speed: 32-bit unsigned, 1:1 → RPM (без деления)
 - Power: 32-bit unsigned, умножаем на 100 → Вт
+
+ИСТОРИЯ ИСПРАВЛЕНИЙ:
+- Было: деление на 1000 (ошибочно по документации)
+- Стало: деление на 100 (проверено экспериментально)
+- Финальное: деление на 10 (проверено по показаниям дисплея датчика)
+- Причина: Датчик DYN-200 передаёт значения в десятых долях Н·м (raw=13 → 1.3 Н·м)
+  Это соответствует показаниям на дисплее датчика.
 
 Examples:
     >>> from core.unit_conversion import raw_to_torque, raw_to_speed, raw_to_power
@@ -61,14 +68,18 @@ def raw_to_torque(raw_value: int, coefficient: float = 1.0, t_ratio: int = 1087)
         >>> raw_to_torque(50000, 1.0, 2174)  # С удвоенным передаточным отношением
         100.0
     """
-    # Базовое преобразование: делим на 1000 (значения в тысячных долях)
-    base_torque = raw_value / 1000.0
-    # Применяем передаточное отношение: t_ratio / 1087 (нормализация к стандарту)
+    # Базовое преобразование: делим на 10 (значения в десятых долях)
+    # ИСПРАВЛЕНО: Датчик DYN-200 передаёт значения в десятых долях Н·м
+    # Например: raw=13 → 1.3 Н·м (как показывает дисплей датчика)
+    base_torque = raw_value / 10.0
+    # Применяем передаточное отношение: t_ratio / 1087
+    # При t_ratio=1087 множитель = 1.0 (базовое поведение)
+    # При t_ratio=2174 множитель = 2.0 (удвоенное значение)
     ratio_factor = t_ratio / 1087.0 if t_ratio > 0 else 1.0
     return base_torque * ratio_factor * coefficient
 
 
-def raw_to_speed(raw_value: int, r_decimal: int = 1) -> float:
+def raw_to_speed(raw_value: int, r_decimal: int = 0) -> float:
     """
     Конвертация сырого значения скорости в RPM.
     
@@ -92,9 +103,9 @@ def raw_to_speed(raw_value: int, r_decimal: int = 1) -> float:
     
     Examples:
         >>> raw_to_speed(1500)
-        150.0  # По умолчанию r_decimal=1, делим на 10
-        >>> raw_to_speed(1500, 0)
-        1500.0  # Без деления
+        1500.0  # По умолчанию r_decimal=0, без деления
+        >>> raw_to_speed(1500, 1)
+        150.0  # Делим на 10
         >>> raw_to_speed(1500, 2)
         15.0  # Делим на 100
         >>> raw_to_speed(0, 1)
@@ -208,7 +219,7 @@ def raw_to_torque_nm(raw_value: int, coefficient: float = 1.0, t_ratio: int = 10
     return raw_to_torque(raw_value, coefficient, t_ratio)
 
 
-def raw_to_speed_rpm(raw_value: int, r_decimal: int = 1) -> float:
+def raw_to_speed_rpm(raw_value: int, r_decimal: int = 0) -> float:
     """
     Алиас для функции raw_to_speed().
     
