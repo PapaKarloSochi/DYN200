@@ -1,0 +1,1363 @@
+[14:36:46.702] Попытка подключения к COM4 @ 19200 baud...
+[14:36:46.707] === Проверка Modbus RTU mode ===
+[14:36:46.812]   ✓ Порт COM4 открыт, пробуем читать регистры...
+[14:36:46.821]   ✓ Modbus ответ получен: 6 регистров
+[14:36:46.822]   [RAW REGS] 0000 0000 0000 0000 0000 0000
+[14:36:46.823] ✓ Датчик работает в Modbus RTU mode 1
+[14:36:46.926] Подключено по Modbus RTU
+[14:36:46.931] Ожидание завершения предыдущего потока чтения...
+[14:36:46.937] Ошибка: cannot join current thread
+[14:36:51.386] Запущен цикл чтения Modbus
+[14:36:51.387] Считывание данных начато
+[14:36:51.389] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:51.390] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:51.393] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:51.394] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:51.396] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:51.617] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:51.619] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:51.620] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:51.622] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:51.624] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:51.732] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:51.733] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:51.735] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:51.736] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:51.738] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:51.949] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:51.951] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:51.952] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:51.954] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:51.956] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:52.165] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:52.166] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:52.167] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:52.169] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:52.170] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:52.482] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:52.484] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:52.485] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:52.487] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:52.488] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:52.701] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:52.702] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:52.703] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:52.705] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:52.707] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:52.918] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:52.919] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:52.920] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:52.922] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:52.923] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:53.135] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:53.137] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:53.138] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:53.139] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:53.141] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:53.350] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:53.351] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:53.352] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:53.354] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:53.356] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:53.565] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:53.566] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:53.568] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:53.569] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:53.571] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:53.676] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:53.677] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:53.679] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:53.680] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:53.682] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:53.894] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:53.895] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:53.896] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:53.898] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:53.900] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:54.217] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:54.218] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:54.219] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:54.221] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:54.223] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:54.435] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:54.437] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:54.438] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:54.440] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:54.442] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:54.548] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:54.549] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:54.551] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:54.552] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:54.554] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:54.869] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:54.871] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:54.872] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:54.873] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:54.875] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:55.087] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:55.088] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:55.089] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:55.091] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:55.093] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:55.301] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:55.303] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:55.304] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:55.305] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:55.307] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:55.517] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:55.519] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:55.520] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:55.522] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:55.523] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:55.626] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:55.628] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:55.629] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:55.630] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:55.632] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:55.836] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:55.837] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:55.838] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:55.840] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:55.841] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:56.055] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:56.056] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:56.058] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:56.059] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:56.061] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:56.273] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:56.274] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:56.275] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:56.277] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:56.278] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:56.381] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:56.383] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:56.384] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:56.386] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:56.387] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:56.599] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:56.600] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:56.601] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:56.602] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:56.604] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:56.707] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:56.708] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:56.709] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:56.711] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:56.713] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:56.932] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:56.933] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:56.934] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:56.936] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:56.938] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:57.039] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:57.041] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:57.042] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:57.043] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:57.045] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:57.249] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:57.251] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:57.252] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:57.254] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:57.255] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:57.459] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:57.460] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:57.462] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:57.464] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:57.466] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:57.569] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:57.571] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:57.572] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:57.573] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:57.575] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:57.881] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:57.883] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:57.884] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:57.885] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:57.887] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:58.110] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:58.112] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:58.113] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:58.114] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:58.116] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:58.218] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:58.219] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:58.220] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:58.222] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:58.223] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:58.550] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:58.552] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:58.553] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:58.554] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:58.556] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:58.659] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:58.661] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:58.662] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:58.663] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:58.665] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:58.973] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:58.975] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:58.976] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:58.977] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:58.979] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:59.081] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:59.083] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:59.084] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:59.085] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:59.087] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:59.396] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:59.398] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:59.399] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:59.401] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:59.402] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:59.507] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:59.508] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:59.510] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:59.511] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:59.513] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:59.719] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:59.721] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:59.722] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:59.723] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:59.725] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:36:59.931] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:36:59.932] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:36:59.933] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:36:59.935] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:36:59.936] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:37:00.142] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:37:00.144] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:37:00.145] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:37:00.146] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:37:00.148] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:37:00.355] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:37:00.357] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:37:00.358] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:37:00.359] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:37:00.361] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:37:00.568] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:37:00.569] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:37:00.570] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:37:00.572] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:37:00.574] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:37:00.676] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:37:00.677] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:37:00.679] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:37:00.680] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:37:00.682] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:37:00.887] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:37:00.888] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:37:00.889] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:37:00.891] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:37:00.892] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:37:01.201] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:37:01.203] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:37:01.204] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:37:01.205] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:37:01.207] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:37:01.313] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:37:01.314] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:37:01.315] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:37:01.317] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:37:01.319] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:37:01.534] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:37:01.535] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:37:01.536] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:37:01.538] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:37:01.540] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:37:01.752] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:37:01.753] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:37:01.755] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:37:01.756] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:37:01.758] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:37:01.971] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:37:01.972] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:37:01.973] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:37:01.975] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:37:01.977] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:37:02.188] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:37:02.190] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:37:02.190] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:37:02.192] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:37:02.194] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:37:02.301] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:37:02.302] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:37:02.304] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:37:02.305] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:37:02.307] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:37:02.522] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:37:02.523] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:37:02.525] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:37:02.526] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:37:02.528] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:37:02.636] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:37:02.638] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:37:02.639] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:37:02.640] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:37:02.642] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:37:02.958] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:37:02.960] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:37:02.961] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:37:02.963] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:37:02.964] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:37:03.171] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:37:03.172] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:37:03.174] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:37:03.175] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:37:03.177] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:37:03.389] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:37:03.391] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:37:03.392] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:37:03.394] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:37:03.395] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:37:03.608] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:37:03.609] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:37:03.610] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:37:03.612] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:37:03.613] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:37:03.825] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:37:03.826] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:37:03.827] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:37:03.829] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:37:03.830] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:37:04.043] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:37:04.045] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:37:04.046] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:37:04.048] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:37:04.049] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:37:04.266] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:37:04.268] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:37:04.269] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:37:04.271] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:37:04.272] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:37:04.274] Считывание данных остановлено
+[14:37:14.940] [СБРОС] Данные и график очищены для нового этапа
+[14:37:16.427] [СБРОС MAX] Пиковые значения сброшены
+[14:49:35.369] Тема изменена на: светлую
+[14:49:45.219] Попытка подключения к COM4 @ 19200 baud...
+[14:49:45.222] === Проверка Modbus RTU mode ===
+[14:49:45.324]   ✓ Порт COM4 открыт, пробуем читать регистры...
+[14:49:45.330]   ✓ Modbus ответ получен: 6 регистров
+[14:49:45.331]   [RAW REGS] 0000 0000 0000 0000 0000 0000
+[14:49:45.332] ✓ Датчик работает в Modbus RTU mode 1
+[14:49:45.434] Подключено по Modbus RTU
+[14:49:45.441] Ожидание завершения предыдущего потока чтения...
+[14:49:45.444] Ошибка: cannot join current thread
+[14:49:47.334] Запущен цикл чтения Modbus
+[14:49:47.340] Считывание данных начато
+[14:49:47.343] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:47.345] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:47.346] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:47.347] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:47.349] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:47.715] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:47.716] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:47.718] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:47.719] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:47.721] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:47.902] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:47.903] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:47.905] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:47.906] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:47.908] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:48.249] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:48.251] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:48.252] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:48.254] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:48.256] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:48.600] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:48.601] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:48.602] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:48.604] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:48.605] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:49.119] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:49.121] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:49.122] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:49.123] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:49.125] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:49.470] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:49.471] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:49.472] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:49.474] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:49.475] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:49.818] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:49.820] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:49.821] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:49.823] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:49.824] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:50.340] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:50.342] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:50.343] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:50.344] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:50.346] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:50.863] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:50.864] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:50.865] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:50.867] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:50.868] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:51.210] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:51.211] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:51.212] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:51.214] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:51.216] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:51.559] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:51.561] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:51.562] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:51.564] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:51.565] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:52.076] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:52.078] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:52.079] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:52.080] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:52.082] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:52.426] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:52.427] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:52.428] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:52.430] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:52.431] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:52.776] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:52.778] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:52.779] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:52.781] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:52.782] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:53.293] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:53.294] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:53.295] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:53.297] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:53.298] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:53.645] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:53.647] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:53.648] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:53.649] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:53.651] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:53.993] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:53.994] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:53.995] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:53.997] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:53.998] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:54.340] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:54.342] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:54.343] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:54.344] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:54.347] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:54.689] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:54.690] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:54.691] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:54.693] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:54.694] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:55.035] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:55.037] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:55.038] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:55.039] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:55.041] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:55.384] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:55.385] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:55.387] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:55.388] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:55.390] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:55.896] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:55.897] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:55.898] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:55.900] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:55.901] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:56.239] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:56.241] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:56.242] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:56.243] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:56.245] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:56.586] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:56.588] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:56.589] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:56.590] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:56.592] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:56.932] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:56.934] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:56.935] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:56.936] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:56.938] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:57.301] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:57.303] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:57.304] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:57.306] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:57.307] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:57.821] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:57.822] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:57.824] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:57.825] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:57.827] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:58.169] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:58.171] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:58.172] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:58.173] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:58.175] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:58.518] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:58.520] [MODBUS RAW] T_raw=0, S_raw=76, P_raw=0
+[14:49:58.521] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=004C
+[14:49:58.522] [MODBUS CALC] T=0.000N·m, S=7.6RPM, P=0.0W
+[14:49:58.524] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:58.877] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:58.878] [MODBUS RAW] T_raw=0, S_raw=76, P_raw=0
+[14:49:58.879] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=004C
+[14:49:58.880] [MODBUS CALC] T=0.000N·m, S=7.6RPM, P=0.0W
+[14:49:58.882] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:59.226] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:59.228] [MODBUS RAW] T_raw=0, S_raw=76, P_raw=0
+[14:49:59.229] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=004C
+[14:49:59.230] [MODBUS CALC] T=0.000N·m, S=7.6RPM, P=0.0W
+[14:49:59.232] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:49:59.751] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:49:59.752] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:49:59.753] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:49:59.755] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:49:59.756] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:00.106] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:00.107] [MODBUS RAW] T_raw=3, S_raw=1995, P_raw=6
+[14:50:00.108] [MODBUS REGS] R[0]=0000, R[1]=0003, R[2]=0000, R[3]=07CB
+[14:50:00.110] [MODBUS CALC] T=0.003N·m, S=199.5RPM, P=6.0W
+[14:50:00.112] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:00.472] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:00.473] [MODBUS RAW] T_raw=4, S_raw=8416, P_raw=35
+[14:50:00.474] [MODBUS REGS] R[0]=0000, R[1]=0004, R[2]=0000, R[3]=20E0
+[14:50:00.476] [MODBUS CALC] T=0.004N·m, S=841.6RPM, P=35.0W
+[14:50:00.478] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:00.835] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:00.837] [MODBUS RAW] T_raw=1, S_raw=21914, P_raw=22
+[14:50:00.838] [MODBUS REGS] R[0]=0000, R[1]=0001, R[2]=0000, R[3]=559A
+[14:50:00.839] [MODBUS CALC] T=0.001N·m, S=2191.4RPM, P=22.0W
+[14:50:00.841] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:01.200] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:01.201] [MODBUS RAW] T_raw=4294967295, S_raw=30863, P_raw=32
+[14:50:01.202] [MODBUS REGS] R[0]=FFFF, R[1]=FFFF, R[2]=0000, R[3]=788F
+[14:50:01.204] [MODBUS CALC] T=-0.001N·m, S=3086.3RPM, P=32.0W
+[14:50:01.206] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:01.562] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:01.563] [MODBUS RAW] T_raw=0, S_raw=26396, P_raw=0
+[14:50:01.565] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=671C
+[14:50:01.566] [MODBUS CALC] T=0.000N·m, S=2639.6RPM, P=0.0W
+[14:50:01.568] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:01.926] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:01.928] [MODBUS RAW] T_raw=0, S_raw=1875, P_raw=0
+[14:50:01.929] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0753
+[14:50:01.930] [MODBUS CALC] T=0.000N·m, S=187.5RPM, P=0.0W
+[14:50:01.932] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:02.291] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:02.293] [MODBUS RAW] T_raw=0, S_raw=150, P_raw=0
+[14:50:02.294] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0096
+[14:50:02.295] [MODBUS CALC] T=0.000N·m, S=15.0RPM, P=0.0W
+[14:50:02.297] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:02.836] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:02.838] [MODBUS RAW] T_raw=0, S_raw=150, P_raw=0
+[14:50:02.839] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0096
+[14:50:02.840] [MODBUS CALC] T=0.000N·m, S=15.0RPM, P=0.0W
+[14:50:02.842] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:03.193] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:03.194] [MODBUS RAW] T_raw=3, S_raw=3077, P_raw=6
+[14:50:03.195] [MODBUS REGS] R[0]=0000, R[1]=0003, R[2]=0000, R[3]=0C05
+[14:50:03.197] [MODBUS CALC] T=0.003N·m, S=307.7RPM, P=6.0W
+[14:50:03.198] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:03.555] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:03.557] [MODBUS RAW] T_raw=4, S_raw=10899, P_raw=45
+[14:50:03.558] [MODBUS REGS] R[0]=0000, R[1]=0004, R[2]=0000, R[3]=2A93
+[14:50:03.560] [MODBUS CALC] T=0.004N·m, S=1089.9RPM, P=45.0W
+[14:50:03.561] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:04.098] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:04.100] [MODBUS RAW] T_raw=5, S_raw=32092, P_raw=168
+[14:50:04.101] [MODBUS REGS] R[0]=0000, R[1]=0005, R[2]=0000, R[3]=7D5C
+[14:50:04.102] [MODBUS CALC] T=0.005N·m, S=3209.2RPM, P=168.0W
+[14:50:04.104] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:04.468] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:04.469] [MODBUS RAW] T_raw=3, S_raw=56856, P_raw=178
+[14:50:04.471] [MODBUS REGS] R[0]=0000, R[1]=0003, R[2]=0000, R[3]=DE18
+[14:50:04.472] [MODBUS CALC] T=0.003N·m, S=5685.6RPM, P=178.0W
+[14:50:04.474] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:04.825] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:04.826] [MODBUS RAW] T_raw=2, S_raw=71157, P_raw=149
+[14:50:04.828] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=15F5
+[14:50:04.829] [MODBUS CALC] T=0.002N·m, S=7115.7RPM, P=149.0W
+[14:50:04.831] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:05.182] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:05.184] [MODBUS RAW] T_raw=2, S_raw=77755, P_raw=162
+[14:50:05.185] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=2FBB
+[14:50:05.187] [MODBUS CALC] T=0.002N·m, S=7775.5RPM, P=162.0W
+[14:50:05.188] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:05.540] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:05.541] [MODBUS RAW] T_raw=2, S_raw=78564, P_raw=164
+[14:50:05.542] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=32E4
+[14:50:05.544] [MODBUS CALC] T=0.002N·m, S=7856.4RPM, P=164.0W
+[14:50:05.545] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:05.902] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:05.904] [MODBUS RAW] T_raw=2, S_raw=78627, P_raw=164
+[14:50:05.905] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=3323
+[14:50:05.907] [MODBUS CALC] T=0.002N·m, S=7862.7RPM, P=164.0W
+[14:50:05.908] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:06.436] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:06.438] [MODBUS RAW] T_raw=2, S_raw=78624, P_raw=164
+[14:50:06.439] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=3320
+[14:50:06.440] [MODBUS CALC] T=0.002N·m, S=7862.4RPM, P=164.0W
+[14:50:06.442] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:06.798] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:06.799] [MODBUS RAW] T_raw=2, S_raw=78663, P_raw=164
+[14:50:06.801] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=3347
+[14:50:06.802] [MODBUS CALC] T=0.002N·m, S=7866.3RPM, P=164.0W
+[14:50:06.804] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:07.158] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:07.159] [MODBUS RAW] T_raw=2, S_raw=78780, P_raw=164
+[14:50:07.161] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=33BC
+[14:50:07.162] [MODBUS CALC] T=0.002N·m, S=7878.0RPM, P=164.0W
+[14:50:07.164] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:07.522] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:07.523] [MODBUS RAW] T_raw=2, S_raw=78858, P_raw=165
+[14:50:07.525] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=340A
+[14:50:07.526] [MODBUS CALC] T=0.002N·m, S=7885.8RPM, P=165.0W
+[14:50:07.528] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:08.057] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:08.058] [MODBUS RAW] T_raw=0, S_raw=77786, P_raw=0
+[14:50:08.060] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0001, R[3]=2FDA
+[14:50:08.061] [MODBUS CALC] T=0.000N·m, S=7778.6RPM, P=0.0W
+[14:50:08.063] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:08.429] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:08.431] [MODBUS RAW] T_raw=0, S_raw=68170, P_raw=0
+[14:50:08.432] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0001, R[3]=0A4A
+[14:50:08.433] [MODBUS CALC] T=0.000N·m, S=6817.0RPM, P=0.0W
+[14:50:08.435] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:08.795] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:08.796] [MODBUS RAW] T_raw=0, S_raw=44797, P_raw=0
+[14:50:08.797] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=AEFD
+[14:50:08.799] [MODBUS CALC] T=0.000N·m, S=4479.7RPM, P=0.0W
+[14:50:08.801] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:09.166] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:09.168] [MODBUS RAW] T_raw=0, S_raw=24483, P_raw=0
+[14:50:09.169] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=5FA3
+[14:50:09.171] [MODBUS CALC] T=0.000N·m, S=2448.3RPM, P=0.0W
+[14:50:09.173] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:09.709] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:09.710] [MODBUS RAW] T_raw=0, S_raw=192, P_raw=0
+[14:50:09.711] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=00C0
+[14:50:09.713] [MODBUS CALC] T=0.000N·m, S=19.2RPM, P=0.0W
+[14:50:09.715] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:10.082] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:10.083] [MODBUS RAW] T_raw=0, S_raw=20, P_raw=0
+[14:50:10.084] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0014
+[14:50:10.086] [MODBUS CALC] T=0.000N·m, S=2.0RPM, P=0.0W
+[14:50:10.087] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:10.460] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:10.461] [MODBUS RAW] T_raw=0, S_raw=101, P_raw=0
+[14:50:10.462] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0065
+[14:50:10.464] [MODBUS CALC] T=0.000N·m, S=10.1RPM, P=0.0W
+[14:50:10.465] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:10.833] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:10.835] [MODBUS RAW] T_raw=0, S_raw=101, P_raw=0
+[14:50:10.836] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0065
+[14:50:10.837] [MODBUS CALC] T=0.000N·m, S=10.1RPM, P=0.0W
+[14:50:10.839] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:11.204] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:11.206] [MODBUS RAW] T_raw=0, S_raw=101, P_raw=0
+[14:50:11.207] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0065
+[14:50:11.209] [MODBUS CALC] T=0.000N·m, S=10.1RPM, P=0.0W
+[14:50:11.210] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:11.598] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:11.600] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:50:11.601] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:50:11.602] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:50:11.604] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:12.151] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:12.152] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:50:12.153] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:50:12.155] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:50:12.156] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:12.519] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:12.520] [MODBUS RAW] T_raw=0, S_raw=2, P_raw=0
+[14:50:12.521] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0002
+[14:50:12.523] [MODBUS CALC] T=0.000N·m, S=0.2RPM, P=0.0W
+[14:50:12.524] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:12.887] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:12.888] [MODBUS RAW] T_raw=0, S_raw=2, P_raw=0
+[14:50:12.889] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0002
+[14:50:12.891] [MODBUS CALC] T=0.000N·m, S=0.2RPM, P=0.0W
+[14:50:12.892] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:13.258] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:13.259] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:50:13.260] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:50:13.262] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:50:13.263] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:13.623] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:13.624] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:50:13.625] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:50:13.627] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:50:13.628] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:14.003] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:14.005] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:50:14.006] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:50:14.008] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:50:14.010] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:14.393] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:14.394] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:50:14.395] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:50:14.397] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:50:14.399] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:14.781] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:50:14.783] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:50:14.784] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:50:14.786] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:50:14.787] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:50:14.890] Считывание данных остановлено
+[14:57:16.244] Попытка подключения к COM4 @ 19200 baud...
+[14:57:16.249] === Проверка Modbus RTU mode ===
+[14:57:16.354]   ✓ Порт COM4 открыт, пробуем читать регистры...
+[14:57:16.364]   ✓ Modbus ответ получен: 6 регистров
+[14:57:16.365]   [RAW REGS] 0000 0000 0000 0000 0000 0000
+[14:57:16.367] ✓ Датчик работает в Modbus RTU mode 1
+[14:57:16.469] Подключено по Modbus RTU
+[14:57:16.472] Ожидание завершения предыдущего потока чтения...
+[14:57:16.477] Ошибка: cannot join current thread
+[14:57:18.468] Запущен цикл чтения Modbus
+[14:57:18.469] Считывание данных начато
+[14:57:18.588] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:18.589] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:18.591] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:18.592] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:18.594] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:18.696] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:18.698] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:18.699] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:18.701] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:18.702] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:18.904] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:18.906] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:18.907] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:18.908] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:18.910] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:19.014] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:19.015] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:19.016] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:19.018] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:19.020] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:19.241] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:19.243] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:19.244] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:19.245] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:19.247] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:19.366] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:19.368] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:19.369] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:19.370] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:19.372] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:19.606] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:19.607] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:19.608] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:19.610] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:19.612] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:19.844] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:19.846] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:19.847] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:19.849] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:19.851] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:19.972] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:19.974] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:19.975] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:19.976] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:19.979] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:20.080] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:20.082] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:20.083] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:20.084] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:20.086] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:20.329] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:20.331] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:20.332] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:20.333] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:20.336] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:20.449] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:20.450] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:20.451] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:20.453] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:20.454] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:20.687] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:20.688] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:20.689] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:20.691] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:20.692] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:20.811] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:20.812] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:20.813] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:20.815] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:20.817] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:21.047] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:21.048] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:21.049] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:21.051] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:21.052] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:21.172] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:21.174] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:21.175] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:21.177] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:21.178] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:21.423] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:21.424] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:21.425] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:21.427] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:21.428] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:21.546] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:21.548] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:21.549] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:21.551] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:21.552] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:21.801] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:21.802] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:21.803] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:21.805] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:21.806] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:21.926] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:21.927] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:21.928] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:21.930] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:21.931] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:22.146] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:22.147] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:22.149] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:22.150] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:22.152] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:22.266] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:22.268] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:22.269] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:22.271] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:22.272] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:22.505] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:22.507] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:22.508] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:22.509] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:22.511] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:22.626] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:22.628] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:22.629] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:22.631] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:22.632] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:22.852] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:22.854] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:22.855] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:22.857] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:22.858] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:23.089] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:23.091] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:23.092] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:23.094] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:23.095] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:23.200] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:23.201] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:23.203] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:23.204] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:23.206] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:23.322] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:23.323] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:23.325] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:23.326] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:23.328] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:23.563] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:23.564] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:23.565] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:23.567] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:23.569] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:23.687] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:23.689] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:23.690] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:23.692] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:23.693] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:23.926] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:23.928] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:23.929] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:23.930] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:23.932] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:24.044] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:24.045] [MODBUS RAW] T_raw=0, S_raw=164, P_raw=0
+[14:57:24.047] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=00A4
+[14:57:24.048] [MODBUS CALC] T=0.000N·m, S=16.4RPM, P=0.0W
+[14:57:24.050] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:24.267] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:24.268] [MODBUS RAW] T_raw=0, S_raw=141, P_raw=0
+[14:57:24.269] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=008D
+[14:57:24.271] [MODBUS CALC] T=0.000N·m, S=14.1RPM, P=0.0W
+[14:57:24.272] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:24.391] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:24.392] [MODBUS RAW] T_raw=0, S_raw=141, P_raw=0
+[14:57:24.393] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=008D
+[14:57:24.395] [MODBUS CALC] T=0.000N·m, S=14.1RPM, P=0.0W
+[14:57:24.396] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:24.617] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:24.619] [MODBUS RAW] T_raw=0, S_raw=141, P_raw=0
+[14:57:24.620] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=008D
+[14:57:24.621] [MODBUS CALC] T=0.000N·m, S=14.1RPM, P=0.0W
+[14:57:24.623] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:24.738] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:24.739] [MODBUS RAW] T_raw=0, S_raw=141, P_raw=0
+[14:57:24.740] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=008D
+[14:57:24.742] [MODBUS CALC] T=0.000N·m, S=14.1RPM, P=0.0W
+[14:57:24.743] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:24.964] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:24.965] [MODBUS RAW] T_raw=0, S_raw=141, P_raw=0
+[14:57:24.966] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=008D
+[14:57:24.968] [MODBUS CALC] T=0.000N·m, S=14.1RPM, P=0.0W
+[14:57:24.970] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:25.193] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:25.194] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:25.195] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:25.197] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:25.198] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:25.318] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:25.320] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:25.321] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:25.322] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:25.324] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:25.440] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:25.442] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:25.443] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:25.445] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:25.446] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:25.692] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:25.694] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:25.695] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:25.696] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:25.698] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:25.816] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:25.817] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:25.818] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:25.820] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:25.821] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:26.051] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:26.052] [MODBUS RAW] T_raw=0, S_raw=2, P_raw=0
+[14:57:26.054] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0002
+[14:57:26.055] [MODBUS CALC] T=0.000N·m, S=0.2RPM, P=0.0W
+[14:57:26.057] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:26.180] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:26.182] [MODBUS RAW] T_raw=2, S_raw=2120, P_raw=4
+[14:57:26.183] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0000, R[3]=0848
+[14:57:26.185] [MODBUS CALC] T=0.002N·m, S=212.0RPM, P=4.0W
+[14:57:26.187] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:26.409] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:26.410] [MODBUS RAW] T_raw=3, S_raw=3473, P_raw=10
+[14:57:26.412] [MODBUS REGS] R[0]=0000, R[1]=0003, R[2]=0000, R[3]=0D91
+[14:57:26.413] [MODBUS CALC] T=0.003N·m, S=347.3RPM, P=10.0W
+[14:57:26.415] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:26.517] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:26.518] [MODBUS RAW] T_raw=3, S_raw=6319, P_raw=19
+[14:57:26.519] [MODBUS REGS] R[0]=0000, R[1]=0003, R[2]=0000, R[3]=18AF
+[14:57:26.521] [MODBUS CALC] T=0.003N·m, S=631.9RPM, P=19.0W
+[14:57:26.523] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:26.736] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:26.738] [MODBUS RAW] T_raw=4, S_raw=10710, P_raw=44
+[14:57:26.739] [MODBUS REGS] R[0]=0000, R[1]=0004, R[2]=0000, R[3]=29D6
+[14:57:26.741] [MODBUS CALC] T=0.004N·m, S=1071.0RPM, P=44.0W
+[14:57:26.742] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:26.853] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:26.854] [MODBUS RAW] T_raw=4, S_raw=17484, P_raw=73
+[14:57:26.855] [MODBUS REGS] R[0]=0000, R[1]=0004, R[2]=0000, R[3]=444C
+[14:57:26.857] [MODBUS CALC] T=0.004N·m, S=1748.4RPM, P=73.0W
+[14:57:26.859] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:27.082] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:27.084] [MODBUS RAW] T_raw=4, S_raw=26196, P_raw=109
+[14:57:27.085] [MODBUS REGS] R[0]=0000, R[1]=0004, R[2]=0000, R[3]=6654
+[14:57:27.087] [MODBUS CALC] T=0.004N·m, S=2619.6RPM, P=109.0W
+[14:57:27.089] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:27.325] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:27.326] [MODBUS RAW] T_raw=5, S_raw=35181, P_raw=184
+[14:57:27.328] [MODBUS REGS] R[0]=0000, R[1]=0005, R[2]=0000, R[3]=896D
+[14:57:27.329] [MODBUS CALC] T=0.005N·m, S=3518.1RPM, P=184.0W
+[14:57:27.331] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:27.447] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:27.448] [MODBUS RAW] T_raw=5, S_raw=45600, P_raw=238
+[14:57:27.449] [MODBUS REGS] R[0]=0000, R[1]=0005, R[2]=0000, R[3]=B220
+[14:57:27.451] [MODBUS CALC] T=0.005N·m, S=4560.0RPM, P=238.0W
+[14:57:27.452] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:27.572] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:27.573] [MODBUS RAW] T_raw=3, S_raw=56422, P_raw=177
+[14:57:27.574] [MODBUS REGS] R[0]=0000, R[1]=0003, R[2]=0000, R[3]=DC66
+[14:57:27.576] [MODBUS CALC] T=0.003N·m, S=5642.2RPM, P=177.0W
+[14:57:27.578] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:27.808] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:27.809] [MODBUS RAW] T_raw=3, S_raw=63617, P_raw=199
+[14:57:27.811] [MODBUS REGS] R[0]=0000, R[1]=0003, R[2]=0000, R[3]=F881
+[14:57:27.812] [MODBUS CALC] T=0.003N·m, S=6361.7RPM, P=199.0W
+[14:57:27.814] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:27.928] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:27.929] [MODBUS RAW] T_raw=3, S_raw=69909, P_raw=219
+[14:57:27.930] [MODBUS REGS] R[0]=0000, R[1]=0003, R[2]=0001, R[3]=1115
+[14:57:27.932] [MODBUS CALC] T=0.003N·m, S=6990.9RPM, P=219.0W
+[14:57:27.933] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:28.170] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:28.172] [MODBUS RAW] T_raw=3, S_raw=74285, P_raw=233
+[14:57:28.173] [MODBUS REGS] R[0]=0000, R[1]=0003, R[2]=0001, R[3]=222D
+[14:57:28.175] [MODBUS CALC] T=0.003N·m, S=7428.5RPM, P=233.0W
+[14:57:28.177] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:28.278] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:28.280] [MODBUS RAW] T_raw=2, S_raw=76680, P_raw=160
+[14:57:28.281] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=2B88
+[14:57:28.283] [MODBUS CALC] T=0.002N·m, S=7668.0RPM, P=160.0W
+[14:57:28.284] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:28.508] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:28.510] [MODBUS RAW] T_raw=2, S_raw=77366, P_raw=162
+[14:57:28.511] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=2E36
+[14:57:28.513] [MODBUS CALC] T=0.002N·m, S=7736.6RPM, P=162.0W
+[14:57:28.514] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:28.634] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:28.635] [MODBUS RAW] T_raw=2, S_raw=77537, P_raw=162
+[14:57:28.636] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=2EE1
+[14:57:28.638] [MODBUS CALC] T=0.002N·m, S=7753.7RPM, P=162.0W
+[14:57:28.640] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:28.855] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:28.857] [MODBUS RAW] T_raw=2, S_raw=77614, P_raw=162
+[14:57:28.858] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=2F2E
+[14:57:28.860] [MODBUS CALC] T=0.002N·m, S=7761.4RPM, P=162.0W
+[14:57:28.862] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:29.094] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:29.095] [MODBUS RAW] T_raw=2, S_raw=77648, P_raw=162
+[14:57:29.096] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=2F50
+[14:57:29.098] [MODBUS CALC] T=0.002N·m, S=7764.8RPM, P=162.0W
+[14:57:29.099] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:29.203] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:29.205] [MODBUS RAW] T_raw=2, S_raw=77673, P_raw=162
+[14:57:29.206] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=2F69
+[14:57:29.208] [MODBUS CALC] T=0.002N·m, S=7767.3RPM, P=162.0W
+[14:57:29.209] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:29.330] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:29.331] [MODBUS RAW] T_raw=2, S_raw=77687, P_raw=162
+[14:57:29.333] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=2F77
+[14:57:29.335] [MODBUS CALC] T=0.002N·m, S=7768.7RPM, P=162.0W
+[14:57:29.337] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:29.567] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:29.568] [MODBUS RAW] T_raw=2, S_raw=77672, P_raw=162
+[14:57:29.569] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=2F68
+[14:57:29.571] [MODBUS CALC] T=0.002N·m, S=7767.2RPM, P=162.0W
+[14:57:29.573] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:29.689] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:29.690] [MODBUS RAW] T_raw=2, S_raw=77655, P_raw=162
+[14:57:29.692] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=2F57
+[14:57:29.693] [MODBUS CALC] T=0.002N·m, S=7765.5RPM, P=162.0W
+[14:57:29.695] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:29.941] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:29.943] [MODBUS RAW] T_raw=2, S_raw=77631, P_raw=162
+[14:57:29.944] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=2F3F
+[14:57:29.945] [MODBUS CALC] T=0.002N·m, S=7763.1RPM, P=162.0W
+[14:57:29.947] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:30.065] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:30.067] [MODBUS RAW] T_raw=2, S_raw=77619, P_raw=162
+[14:57:30.068] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=2F33
+[14:57:30.070] [MODBUS CALC] T=0.002N·m, S=7761.9RPM, P=162.0W
+[14:57:30.071] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:30.321] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:30.322] [MODBUS RAW] T_raw=2, S_raw=77614, P_raw=162
+[14:57:30.324] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=2F2E
+[14:57:30.325] [MODBUS CALC] T=0.002N·m, S=7761.4RPM, P=162.0W
+[14:57:30.327] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:30.448] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:30.450] [MODBUS RAW] T_raw=2, S_raw=77636, P_raw=162
+[14:57:30.451] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=2F44
+[14:57:30.453] [MODBUS CALC] T=0.002N·m, S=7763.6RPM, P=162.0W
+[14:57:30.455] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:30.683] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:30.685] [MODBUS RAW] T_raw=2, S_raw=77645, P_raw=162
+[14:57:30.686] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=2F4D
+[14:57:30.687] [MODBUS CALC] T=0.002N·m, S=7764.5RPM, P=162.0W
+[14:57:30.689] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:30.812] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:30.814] [MODBUS RAW] T_raw=2, S_raw=77671, P_raw=162
+[14:57:30.815] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=2F67
+[14:57:30.816] [MODBUS CALC] T=0.002N·m, S=7767.1RPM, P=162.0W
+[14:57:30.818] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:31.047] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:31.049] [MODBUS RAW] T_raw=2, S_raw=77699, P_raw=162
+[14:57:31.050] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=2F83
+[14:57:31.051] [MODBUS CALC] T=0.002N·m, S=7769.9RPM, P=162.0W
+[14:57:31.053] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:31.280] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:31.281] [MODBUS RAW] T_raw=2, S_raw=77687, P_raw=162
+[14:57:31.283] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=2F77
+[14:57:31.284] [MODBUS CALC] T=0.002N·m, S=7768.7RPM, P=162.0W
+[14:57:31.286] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:31.407] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:31.408] [MODBUS RAW] T_raw=2, S_raw=77665, P_raw=162
+[14:57:31.409] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=2F61
+[14:57:31.411] [MODBUS CALC] T=0.002N·m, S=7766.5RPM, P=162.0W
+[14:57:31.413] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:31.516] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:31.518] [MODBUS RAW] T_raw=2, S_raw=77647, P_raw=162
+[14:57:31.519] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=2F4F
+[14:57:31.521] [MODBUS CALC] T=0.002N·m, S=7764.7RPM, P=162.0W
+[14:57:31.522] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:31.737] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:31.739] [MODBUS RAW] T_raw=2, S_raw=77574, P_raw=162
+[14:57:31.740] [MODBUS REGS] R[0]=0000, R[1]=0002, R[2]=0001, R[3]=2F06
+[14:57:31.742] [MODBUS CALC] T=0.002N·m, S=7757.4RPM, P=162.0W
+[14:57:31.743] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:31.862] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:31.864] [MODBUS RAW] T_raw=1, S_raw=76920, P_raw=80
+[14:57:31.865] [MODBUS REGS] R[0]=0000, R[1]=0001, R[2]=0001, R[3]=2C78
+[14:57:31.866] [MODBUS CALC] T=0.001N·m, S=7692.0RPM, P=80.0W
+[14:57:31.868] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:32.103] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:32.104] [MODBUS RAW] T_raw=0, S_raw=75016, P_raw=0
+[14:57:32.106] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0001, R[3]=2508
+[14:57:32.107] [MODBUS CALC] T=0.000N·m, S=7501.6RPM, P=0.0W
+[14:57:32.109] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:32.334] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:32.336] [MODBUS RAW] T_raw=0, S_raw=71811, P_raw=0
+[14:57:32.337] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0001, R[3]=1883
+[14:57:32.339] [MODBUS CALC] T=0.000N·m, S=7181.1RPM, P=0.0W
+[14:57:32.340] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:32.447] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:32.448] [MODBUS RAW] T_raw=4294967295, S_raw=66217, P_raw=69
+[14:57:32.449] [MODBUS REGS] R[0]=FFFF, R[1]=FFFF, R[2]=0001, R[3]=02A9
+[14:57:32.451] [MODBUS CALC] T=-0.001N·m, S=6621.7RPM, P=69.0W
+[14:57:32.453] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:32.571] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:32.572] [MODBUS RAW] T_raw=4294967295, S_raw=58380, P_raw=61
+[14:57:32.573] [MODBUS REGS] R[0]=FFFF, R[1]=FFFF, R[2]=0000, R[3]=E40C
+[14:57:32.575] [MODBUS CALC] T=-0.001N·m, S=5838.0RPM, P=61.0W
+[14:57:32.577] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:32.811] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:32.812] [MODBUS RAW] T_raw=4294967295, S_raw=48550, P_raw=50
+[14:57:32.814] [MODBUS REGS] R[0]=FFFF, R[1]=FFFF, R[2]=0000, R[3]=BDA6
+[14:57:32.816] [MODBUS CALC] T=-0.001N·m, S=4855.0RPM, P=50.0W
+[14:57:32.818] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:32.919] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:32.920] [MODBUS RAW] T_raw=0, S_raw=38024, P_raw=0
+[14:57:32.922] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=9488
+[14:57:32.923] [MODBUS CALC] T=0.000N·m, S=3802.4RPM, P=0.0W
+[14:57:32.925] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:33.154] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:33.155] [MODBUS RAW] T_raw=0, S_raw=29046, P_raw=0
+[14:57:33.157] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=7176
+[14:57:33.158] [MODBUS CALC] T=0.000N·m, S=2904.6RPM, P=0.0W
+[14:57:33.160] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:33.278] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:33.279] [MODBUS RAW] T_raw=0, S_raw=20027, P_raw=0
+[14:57:33.280] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=4E3B
+[14:57:33.282] [MODBUS CALC] T=0.000N·m, S=2002.7RPM, P=0.0W
+[14:57:33.283] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:33.533] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:33.534] [MODBUS RAW] T_raw=0, S_raw=215, P_raw=0
+[14:57:33.536] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=00D7
+[14:57:33.537] [MODBUS CALC] T=0.000N·m, S=21.5RPM, P=0.0W
+[14:57:33.539] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:33.769] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:33.771] [MODBUS RAW] T_raw=0, S_raw=215, P_raw=0
+[14:57:33.772] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=00D7
+[14:57:33.773] [MODBUS CALC] T=0.000N·m, S=21.5RPM, P=0.0W
+[14:57:33.775] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:33.895] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:33.896] [MODBUS RAW] T_raw=0, S_raw=215, P_raw=0
+[14:57:33.898] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=00D7
+[14:57:33.899] [MODBUS CALC] T=0.000N·m, S=21.5RPM, P=0.0W
+[14:57:33.901] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:34.124] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:34.126] [MODBUS RAW] T_raw=0, S_raw=215, P_raw=0
+[14:57:34.127] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=00D7
+[14:57:34.128] [MODBUS CALC] T=0.000N·m, S=21.5RPM, P=0.0W
+[14:57:34.130] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:34.234] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:34.235] [MODBUS RAW] T_raw=0, S_raw=26, P_raw=0
+[14:57:34.236] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=001A
+[14:57:34.238] [MODBUS CALC] T=0.000N·m, S=2.6RPM, P=0.0W
+[14:57:34.240] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:34.453] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:34.455] [MODBUS RAW] T_raw=0, S_raw=116, P_raw=0
+[14:57:34.456] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0074
+[14:57:34.457] [MODBUS CALC] T=0.000N·m, S=11.6RPM, P=0.0W
+[14:57:34.459] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:34.564] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:34.565] [MODBUS RAW] T_raw=0, S_raw=116, P_raw=0
+[14:57:34.566] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0074
+[14:57:34.568] [MODBUS CALC] T=0.000N·m, S=11.6RPM, P=0.0W
+[14:57:34.569] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:34.687] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:34.688] [MODBUS RAW] T_raw=0, S_raw=116, P_raw=0
+[14:57:34.690] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0074
+[14:57:34.691] [MODBUS CALC] T=0.000N·m, S=11.6RPM, P=0.0W
+[14:57:34.693] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:34.908] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:34.910] [MODBUS RAW] T_raw=0, S_raw=116, P_raw=0
+[14:57:34.911] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0074
+[14:57:34.913] [MODBUS CALC] T=0.000N·m, S=11.6RPM, P=0.0W
+[14:57:34.914] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:35.144] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:35.146] [MODBUS RAW] T_raw=0, S_raw=116, P_raw=0
+[14:57:35.147] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0074
+[14:57:35.148] [MODBUS CALC] T=0.000N·m, S=11.6RPM, P=0.0W
+[14:57:35.150] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:35.256] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:35.258] [MODBUS RAW] T_raw=0, S_raw=116, P_raw=0
+[14:57:35.259] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0074
+[14:57:35.260] [MODBUS CALC] T=0.000N·m, S=11.6RPM, P=0.0W
+[14:57:35.262] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:35.491] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:35.492] [MODBUS RAW] T_raw=0, S_raw=116, P_raw=0
+[14:57:35.493] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0074
+[14:57:35.495] [MODBUS CALC] T=0.000N·m, S=11.6RPM, P=0.0W
+[14:57:35.496] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:35.608] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:35.609] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:35.610] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:35.612] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:35.614] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:35.715] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:35.716] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:35.717] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:35.719] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:35.722] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:35.953] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:35.955] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:35.956] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:35.958] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:35.959] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:36.188] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:36.189] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:36.190] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:36.192] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:36.193] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:36.313] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:36.315] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:36.316] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:36.318] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:36.319] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:36.423] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:36.424] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:36.425] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:36.427] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:36.428] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:36.660] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:36.661] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:36.663] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:36.664] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:36.666] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:36.769] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:36.770] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:36.771] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:36.773] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:36.775] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:37.023] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:37.025] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:37.026] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:37.027] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:37.029] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:37.135] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:37.136] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:37.137] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:37.139] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:37.140] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:37.388] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:37.390] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:37.391] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:37.392] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:37.394] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:37.500] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:37.502] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:37.503] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:37.504] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:37.506] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:37.739] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:37.741] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:37.742] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:37.744] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:37.745] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:37.848] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:37.850] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:37.851] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:37.852] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:37.854] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:38.100] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:38.102] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:38.103] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:38.104] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:38.106] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:38.212] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:38.214] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:38.215] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:38.216] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:38.218] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:38.446] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:38.448] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:38.449] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:38.450] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:38.452] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:38.557] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:38.558] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:38.559] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:38.561] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:38.563] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:38.665] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:38.666] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:38.667] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:38.669] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:38.670] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:38.872] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:38.874] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:38.875] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:38.877] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:38.879] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:38.980] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:38.981] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:38.983] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:38.984] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:38.986] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:39.190] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:39.191] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:39.192] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:39.194] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:39.196] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:39.298] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:39.299] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:39.300] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:39.302] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:39.304] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:39.514] [MODBUS COEFF] torque=1.0, speed=1.0, power=1.0
+[14:57:39.516] [MODBUS RAW] T_raw=0, S_raw=0, P_raw=0
+[14:57:39.517] [MODBUS REGS] R[0]=0000, R[1]=0000, R[2]=0000, R[3]=0000
+[14:57:39.519] [MODBUS CALC] T=0.000N·m, S=0.0RPM, P=0.0W
+[14:57:39.520] [MODBUS COEFF] torque_coeff=1.0, speed_coeff=1.0
+[14:57:39.522] Считывание данных остановлено
+2026-03-11 17:51:15,580.580 [INFO] [logger:203] Информационное сообщение
+2026-03-11 17:51:15,580.580 [WARNING] [logger:207] Предупреждение
+2026-03-11 17:51:15,580.580 [ERROR] [logger:211] Ошибка
+2026-03-11 17:51:15,580.580 [CRITICAL] [logger:215] Критическая ошибка
+2026-03-11 17:51:15,580.580 [INFO] [logger:203] Сообщение через log() - INFO по умолчанию
+2026-03-11 17:51:15,580.580 [WARNING] [logger:207] Предупреждение через log()
+2026-03-12 08:46:04,374.374 [INFO] [logger:203] Попытка подключения к COM4 @ 19200 baud...
+2026-03-12 08:46:04,382.382 [INFO] [logger:203] [ERROR] Не удалось открыть порт COM4
+2026-03-12 08:46:04,383.383 [INFO] [logger:203] ✗ Не удалось определить режим датчика
+2026-03-12 08:46:12,353.353 [INFO] [logger:203] Считывание данных остановлено
+2026-03-12 08:46:37,706.706 [INFO] [logger:203] Попытка подключения к COM4 @ 19200 baud...
+2026-03-12 08:46:37,778.778 [INFO] [logger:203] [CRITICAL] Исключение: ModbusClientMixin.read_holding_registers() got an unexpected keyword argument 'slave'
+2026-03-12 08:46:37,796.796 [INFO] [logger:203] ✗ Не удалось определить режим датчика
+2026-03-12 08:46:40,500.500 [INFO] [logger:203] Считывание данных остановлено
+2026-03-12 08:46:41,780.780 [INFO] [logger:203] Попытка подключения к COM4 @ 19200 baud...
+2026-03-12 08:46:41,859.859 [INFO] [logger:203] [CRITICAL] Исключение: ModbusClientMixin.read_holding_registers() got an unexpected keyword argument 'slave'
+2026-03-12 08:46:41,862.862 [INFO] [logger:203] ✗ Не удалось определить режим датчика
+2026-03-12 08:46:49,578.578 [INFO] [logger:203] Считывание данных остановлено
+2026-03-12 08:46:53,536.536 [INFO] [logger:203] Попытка подключения к COM4 @ 19200 baud...
+2026-03-12 08:46:53,609.609 [INFO] [logger:203] [CRITICAL] Исключение: ModbusClientMixin.read_holding_registers() got an unexpected keyword argument 'slave'
+2026-03-12 08:46:53,611.611 [INFO] [logger:203] ✗ Не удалось определить режим датчика
+2026-03-12 08:46:55,446.446 [INFO] [logger:203] Считывание данных остановлено
+2026-03-12 08:46:59,156.156 [INFO] [logger:203] [SHUTDOWN] Initiating graceful shutdown...
+2026-03-12 08:46:59,157.157 [INFO] [logger:203] [SHUTDOWN CRITICAL] Error during shutdown: ['variant'] are not supported arguments. Look at the documentation for supported arguments.
+2026-03-12 08:48:33,390.390 [INFO] [logger:203] Попытка подключения к COM4 @ 19200 baud...
+2026-03-12 08:48:33,482.482 [INFO] [logger:203] [OK] Получено 6 регистров от device_id 1
+2026-03-12 08:48:33,483.483 [INFO] [logger:203] ✓ Датчик работает в Modbus RTU mode
+2026-03-12 08:48:33,554.554 [INFO] [logger:203] Считывание данных начато
+2026-03-12 08:48:33,554.554 [INFO] [logger:203] Подключено по Modbus RTU
+2026-03-12 08:48:33,555.555 [INFO] [logger:203] Запущен цикл чтения Modbus
+2026-03-12 08:49:08,815.815 [INFO] [logger:203] Считывание данных остановлено
+2026-03-12 08:49:52,557.557 [INFO] [logger:203] [SHUTDOWN] Initiating graceful shutdown...
+2026-03-12 08:49:52,557.557 [INFO] [logger:203] Логирование остановлено
+2026-03-12 08:49:52,559.559 [INFO] [logger:203] [SHUTDOWN] Modbus client closed
+2026-03-12 08:57:10,202.202 [INFO] [logger:203] [SHUTDOWN] Initiating graceful shutdown...
+2026-03-12 08:57:10,202.202 [INFO] [logger:203] Логирование остановлено
+2026-03-12 08:59:30,083.083 [INFO] [logger:203] Попытка подключения к COM4 @ 19200 baud...
+2026-03-12 08:59:30,176.176 [INFO] [logger:203] [OK] Получено 6 регистров от device_id 1
+2026-03-12 08:59:30,177.177 [INFO] [logger:203] ✓ Датчик работает в Modbus RTU mode
+2026-03-12 08:59:30,242.242 [INFO] [logger:203] Считывание данных начато
+2026-03-12 08:59:30,242.242 [INFO] [logger:203] Подключено по Modbus RTU
+2026-03-12 08:59:30,243.243 [INFO] [logger:203] Запущен цикл чтения Modbus
+2026-03-12 08:59:54,550.550 [INFO] [logger:203] Считывание данных остановлено
+2026-03-12 09:03:24,676.676 [INFO] [logger:203] [SHUTDOWN] Initiating graceful shutdown...
+2026-03-12 09:03:24,677.677 [INFO] [logger:203] Логирование остановлено
+2026-03-12 09:03:24,678.678 [INFO] [logger:203] [SHUTDOWN] Modbus client closed
+2026-03-12 09:07:29,795.795 [INFO] [logger:203] Максимальные значения сброшены
+2026-03-12 09:07:33,061.061 [INFO] [logger:203] [SHUTDOWN] Initiating graceful shutdown...
+2026-03-12 09:07:33,061.061 [INFO] [logger:203] Логирование остановлено

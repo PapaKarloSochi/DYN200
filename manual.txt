@@ -1,0 +1,703 @@
+ATO New dynamic torque sensor instructions
+The product has obtained an invention patent
+Qualification
+
+Main functions and characteristics
+Qualification
+Parameter declaration
+
+3.1. Manual zero
+3.2. Digital filtering
+3.3. Transform output
+3.4. Speed output
+3.5. On the electricity zero
+3.6. Communication output
+
+Operation declaration
+
+4.1. Parameter modification
+4.2. Modify zero
+4.3. Physical approach calibration
+4.4. Modify the filter
+4.5. Modify the baud rate with the machine code
+4.6. Factory data reset
+
+Parameter list
+RS485 communication instructions
+
+6.1. HEXActive upload protocol (Communication mode 0)
+6.2. ASCII Active upload protocol (Communication mode 2)
+6.3. MODBUS RTU protocol (Communication mode 1)
+
+Transform output
+
+7.1. Parameter introduction
+7.2. Parameter introduction
+7.3. Calibrate the current delivery output
+
+Speed output
+
+8.1. Rated performance of speed
+8.2. Standard rotating speed and standard output mode
+8.3. Analog quantity output mode
+8.3.1. Analog quantity module wiring mode
+8.4. Encoder output mode
+
+Use precautions
+Torque conversion relationship (to prevent sensor overload)
+
+10.1 Calculate the relation type
+
+Debugging
+Common use problems and solutions
+Wiring mode (no special requirements, default mode)
+
+13.1. Plug-in pipe foot allocation
+
+Installation and use
+State
+Warranty description
+
+The torque sensor series displays torque and speed data on its own OLED display, and specific parameters such as zero and calibration can be adjusted by pressing. Simple calibration and zero clearance operation can be carried out without the use of instrument, which can be more easily applied in industrial production and torque testing. This sensor has strong stability and adaptability, supports transmission output and RS485 communication, ASCII active transmission communication protocol, the speed of the frequency signal transmitted to the torque instrument, all data do not need to go through frequency pressure conversion, improving the anti-interference performance to a large extent. It also ensures the stability and real-time performance of the transmission data.
+
+Main functions and characteristics
+
+
+Display the current measured torque and speed values in real time with a refresh speed of 15 times per second.
+The current power value can be directly displayed.
+Support RS485 communication, support active upload protocol, communication speed up to 1000 times per second.
+The speed can directly output the frequency signal, the maximum speed range of 15000RPM.
+This sensor supports the transmission current and transmission voltage output.
+The sensor comes with an OLED display with a resolution of 128 x 64.
+Simple calibration, zero clearing, filtering and other operations can be performed.
+Allow a sensor overload of 200%.
+Accuracy achieves accuracy over 1 / 1000, with excellent zero-point stability.
+Non-contact type, no maintenance, no vulnerable devices, no service life limit.
+
+
+Qualification
+
+
+Measurement performance: 24-bit AD acquisition chip, acquisition speed of 1200 times / second.
+Torque value display range -99999-99999, speed value display range 0-99999.
+Communication: 485 communication port can execute Modbus-RTU protocol ASCII active upload HEX active upload protocol.
+Transmission: 4-20mA, 0-20mA, 0-5V, 0-10V, ±5V, 14bit precision, drive load of 500 ohms.
+Key: is for three separate keys operation.
+Power supply: DC 24V (±10%), 0.2A, maximum voltage 27.5V, minimum starting voltage 21V.
+Speed output: shaft rotary output of 2000 line (down) encoder or 120, 60, 10 pulses.
+Working environment: ambient temperature: -20-50°C; relative humidity: 85%RH; avoid strong corrosive gas.
+
+Output mode and its maximum output speed
+For torque output: 800 Times / seconds for 4-20mA, 800 Times / seconds for 0-10V ±5V, 30Times / seconds for MODBUS RTU (RS485), 1000Times / seconds for HEX Active upLoad (RS485), 1000Times / seconds for ASCIIActive upload (RS485).
+For speed output: (External converter) for 4-20mA, (External converter) for 0-10V ±5V, 30Times / seconds for MODBUS RTU (RS485), 1000Times / seconds for HEX Active upLoad (RS485), nonsupport for ASCIIActive upload (RS485).
+For power output: nonsupport for 4-20mA, nonsupport for 0-10V ±5V, 30Times / seconds for MODBUS RTU (RS485), nonsupport for HEX Active upLoad (RS485), nonsupport for ASCIIActive upload (RS485).
+(Note: no power output protocol, based on torque and speed)
+(Note: The above speed is the communication transmission speed)
+
+Parameter declaration
+
+3.1. Manual zero:
+Press the K3 button to zero up the current data and establish a new zero point. All output data are benchmarked against this zero point.
+3.2. Digital filtering:
+Using Gaussian filter and median filter, the digital filter level is 1-99. The higher the level, the anti-disturbance the better, but the more obvious the lag of the data change.
+3.3. Transform output:
+The customer can select a voltage or current transmission output, essentially using a microcontroller to amplify the current sensor data to output a standard voltage and current for the customer to use.
+3.4. Speed output:
+The current speed is transmitted in pulse mode. If 120, 60 pulse or 10 pulse output interface is used in OC output, if 2000 pulse output interface is NPN, PNP, voltage output is optional. (Only 2000 pulse output distinguishes positive and reverse)
+3.5. On the electricity zero:
+The customer can set the power zero enabling, then the boot will automatically set a zero. All output data are benchmarked against this zero point.
+3.6. Communication output:
+The RS485 communication output port outputs the current sensor data value, which is sent to the torque instrument or PLC by Modbus-RTU protocol and active transmission protocol. The higher the wave rate setting, the more the amount of data sent within a fixed time.
+
+Operation declaration
+
+Schematic diagram of the main display screen
+Torque xxx
+Power xxx
+Speed xxx
+Long press zero
+Short press zero to restore the factory settings
+Schematic diagram of the parameter modification interface
+Ratio xxx
+Filtering xxx
+The electricity zero xxx
+Long press exit modification interface
+Short press to modify parameter
+4.1. Parameter modification:
+Under the condition of the main interface display, press K1 for more than two seconds without releasing the release. The system enters the parameter modification interface and displays the parameter modification interface 1, and press K1 to switch between the four interfaces of parameter modification. If you need to return to the main interface, press K1 again for more than two seconds to exit.
+4.2. Modify zero:
+In the case of the main interface display, long press the K3 button to clear up the current parameters. Set the current zero point.
+4.3. Physical approach calibration:
+Apply a known torque (set to X), after stabilizing, record the instrument display value (set to Y), find the "coefficient" in interface 1, and modify the parameter value to (Z * Y / X) by short pressing K2 and K3: the value obtained by dividing the display weight by the actual weight by multiplying the "coefficient". Simply press K1 to exit the parameter modification interface to save.
+4.4. Modify the filter:
+Press K1 to enter the parameter modification interface 1, press K2 on the screen 1 to select the filter coefficient, press K2 to move the currently selected data position back, and press K3 to modify the value of the current position.
+4.5. Modify the baud rate with the machine code:
+Press K1 at the main interface 1, press K1 twice to enter interface 3, press K2 at the interface 3, select the communication rate or communication code, and press K2 and K3 to modify the current parameters.
+4.6. Factory data reset:
+The main interface display continuously presses the K2 button, and presses more than five times in four seconds to restore the current parameters to the factory setting.
+
+Parameter list
+
+Symbol 01: Name Current coefficient, Default value /, Span 100 ~ 32700, Explain Results of physical calibration (not recommended)
+Symbol 02: Name digital filtering, Default value 20, Span 1 ~ 99, Explain The larger the filtering value, the more stable the data is, but it changes more slowly.
+Symbol 03: Name radix point, Default value /, Span 0 ~ 4, Explain Displays the decimal point
+Symbol 04: Name Boot zero, Default value 1, Span 0 ~ 1, Explain 0: Do not clear 1: zero clearing
+Symbol 05: Name Send zero, Default value /, Span 0 ~ 16384, Explain The torque is zero.
+Symbol 06: Name Change to full degree, Default value /, Span 0 ~ 16384, Explain Torque is quantitative range, variable output value.
+Symbol 07: Name Transform the quantity range, Default value /, Span 100 ~ 30000, Explain Sensor range input (modification not recommended)
+Symbol 08: Name Communication rate, Default value 19200, Span 0 ~ 115200, Explain RS485 Communications Baud Rate selection
+Symbol 09: Name Communication mode, Default value 1, Span 0 ~ 1, Explain 0: For the sensor Active upload 1: MODBUS RTU 2: ASCIIActive upload
+Symbol 10: Name Communication machine code, Default value 1, Span 0 ~ 120, Explain MODBUS-RTU slave protocol, Sensor address code
+Symbol 11: Name Communication format, Default value N81, Span N81, N82, O91 O92, E91, E92, Explain Support parity, 8 or 9 bit data bits, 1 or 2 bit stop. No 8-bit data bits using parity.
+Symbol 12: Name Torque direction, Default value 0, Span 0 ~ 1, Explain 0: Default torque direction 1: Opposite torque direction
+
+RS485 communication instructions
+
+This torque sensor supports RS-485 communication and supports the MODBUS-RTU and Active upload protocols. There are three communication modes, namely, communication mode 0, communication mode 1, and communication mode 2. Communication mode 0 is a protocol for communicating with the software and instruments supporting the company. Communication mode 1 is the standard MODBUS-RTU protocol. Communication mode 2 is the ASCII Active upload protocol. All the communication mode data bits of the sensor are 8 and have no parity. The specific communication formats of the three protocols are described below. (Note that the calibration method used by this machine is all called CRC16)
+6.1. HEXActive upload protocol (Communication mode 0)
+Baud rate and transmission speed relationship
+Send speed: 50Times / seconds for 9600bps, 50Times / seconds for 14400bps, 50Times / seconds for 19200bps, 500Times / seconds for 38400bps, 500Times / seconds for 57600bps, 1000Times / seconds for 115200bps
+Frame interval time: 20ms for 9600bps, 20ms for 14400bps, 20ms for 19200bps, 2ms for 38400bps, 2ms for 57600bps, 1ms for 115200bps
+(Change the wave rate, and the data transmission speed changes automatically without modifying other parameters)
+If you are equipped with the torque display instrument of this torque sensor or the upper machine designed by the company, or you should use this communication mode for special circumstances. Change the communication mode to 0 and send both torque and speed data. When the DYN200 torque sensor communication mode is 0, the Active upload data is six bytes, with the company upper computer speed is fixed to 500 times per second, which uses 57600 or 38400 baud rate. Each string of data sent must be checked by the CRC16. Its partial data format is as follows:
+D1 D2 D3 D4 D5 D6
+D1, D2 data are the current torque value with a maximum of 65535, D3, D4 is the current rotational speed value, The maximum size is 32,767. D5, D6 is CRC check bit, The highest position of D3 indicates the positive and negative sign of the torque value, and the highest position is 1, indicating that the torque value is negative.
+This transmission mode uses timing transmission.
+6.2. ASCII Active upload protocol (Communication mode 2)
+Baud rate and transmission speed relationship
+Send speed: 50Times / second for 9600bps, 200Times / seconds for 14400bps, 200Times / seconds for 19200bps, 200Times / seconds for 38400bps, 500Times / seconds for 57600bps, 1000Times / seconds for 115200bps
+Frame interval time: 20ms for 9600bps, 5ms for 14400bps, 5ms for 19200bps, 5ms for 38400bps, 2ms for 57600bps, 1ms for 115200bps
+(Change the wave rate, and the data transmission speed changes automatically without modifying other parameters)
+If you are using a ASCII Active upload, set the communication mode to 2. If you need to change the transmission rate, you just need to change the port rate. Since ASCII Active upload only sends real-time torque data to ensure speed and stability.
+A piece of its data format such as: 2B 30 2E 30 30 30 31 0D
+Convert it through the ASCII code table and its data is: + 0 . 0 0 0 1 \CR
+The data received using the upper computer is as follows:
+6.3. MODBUS_RTU protocol (Communication mode 1)
+(Note: XXH means 16 decimal, 10H to 10 decimal to 16)
+Sensor machine code: The sensor is in the slave mode, and the default machine code is 01H.
+Baud rate: Using MODBUS_RTU communication using a wave rate below 19200, a higher wave rate will cause a higher error rate.
+stop bit : Stop bits are one and two bits, and the default is two stop bits.
+03H order: You can read the current rotation speed value, torque value and power value, etc.
+05H order: It can complete the zero clearance and restore the factory operation.
+10H order: You can modify the coefficients, filtering, decimal points, etc.
+Communication instances: 01 For the machine code, The crc0 is the low level of the CRC check, The crc1 is the high level of the CRC check. Using Commix software can automatically calculate the calibration code, and most of the PLC has its own data calibration function.
+The 03H function code instance
+Send: 01 03 00 00 00 02 C4 0B read torque measurement (long)
+Return: 01 03 04 d1 d2 d3 d4 crc0 crc1 (d1-d4 torque measurement data, d1 highest, d4 lowest)
+The 05H function code instance
+Send to: 01 05 00 00 ff 00 8C 3A (reset operation)
+Return: 01 05 00 00 ff 00 8C 3A
+The 10H function code instance
+Send: 01 10 00 06 00 02 04 d1 d2 d3 d4 crc0 crc1 (modified filter) d1-d4 is the filtered value, the high level is before
+Return: 01 10 00 06 00 02 A1 C9
+(Under 10H command, reset and restore factory, d1-d4 write 00 00 00 01)
+add res s 06H Parameter name digital filtering read-write Read / write Support instructions 03H, 10H A brief description The larger the filter value, the more stable the data is, but it changes more slowly
+add res s 08H Parameter name radix point read-write Read / write Support instructions 03H, 10H A brief description Displays the decimal point
+add res s 0AH Parameter name Boot zero read-write Read / write Support instructions 03H, 10H A brief description 0: No zero 1: Zero zero
+add res s 0CH Parameter name Send zero read-write Read / write Support instructions 03H, 10H A brief description Transfer the hardware to the zero-point output
+add res s 0EH Parameter name Change to full degree read-write Read / write Support instructions 03H, 10H A brief description Full partial hardware output value
+add res s 10H Parameter name Transform the quantity range read-write Read / write Support instructions 03H, 10H A brief description Sensor range input
+add res s 12H Parameter name Torque direction read-write Read / write Support instructions 03H, 10H A brief description Change in the torque direction
+add res s 14H Parameter name traffic rate read-write Read / write Support instructions 03H, 10H A brief description 1--9600bps, 2--14400bps, 3--19200bps, 4--38400bps, 5--57600bps, 6--115200bps
+add res s 16H Parameter name Communication machine code read-write Read / write Support instructions 03H, 10H A brief description The initial value is 1, modified as demand
+add res s 18H Parameter name stop bit read-write Read / write Support instructions 03H, 10H A brief description 0:2-bit stop bit 1:1 Stop stop
+add res s 1AH Parameter name coefficient read-write Read / write Support instructions 03H, 10H A brief description It is not recommended to modify the result of the close physical calibration
+add res s 00H Parameter name zero clearing read-write write Support instructions 05H, 10H A brief description Establish a new zero point
+add res s 02H Parameter name factory data reset read-write write Support instructions 05H, 10H A brief description Clear the user-modified data
+add res s 00H Parameter name Torque value read-write Read Support instructions 03H A brief description Current output torque, measured in NM
+add res s 02H Parameter name Speed read-write Read Support instructions 03H A brief description Current rotation speed, measured in RPM
+add res s 04H Parameter name Power / 10W read-write Read Support instructions 03H A brief description Current output power, measured in KW
+(If the current register address cannot be used, you can add a multiple of 44000 or 4000 over the correspondence address)
+(Under 10H command, reset and restore factory, d1-d4 write 00 00 00 01)
+(All parameters are int type variables, all occupy 4 bytes)
+
+Transform output
+
+7.1. Parameter introduction
+analog output: The resolution was 1 / 16383, and the output current was 4-20mA and 4-12-20mA. The output voltage is -5~0~5V, 0~10V or 0~5~10V is available for customers to choose (note before ordering), and the sensor internal analog output only output torque signal.
+Send zero: The transmission zero change will cause a change in the zero output voltage and output current, which has been adjusted to the appropriate value before leaving the factory.
+Change to full degree: Changing "supply capacity" results in changing output maximum voltage and current maximum supply capacity of 16383, factory default of 16383.
+Transform the quantity range: The default is the current sensor range, modifying the transmission range can change the change rate of transmission output, take 50NM sensor as an example, when the transmission range is adjusted to 10NM, the sensor applies 10NM torque, the output voltage is full output but overrange is not recommended.
+7.2. Parameter introduction
+Five modes of delivering output
+4-20mA: The resolution is 1 / 16383, the default zero point current is 4mA, the forward torque and reverse torque reach the frontal quantitative range, and the transmission output current is 20mA, without distinguishing the direction of torque value.
+4-12-20mA: The resolution is 1 / 16383, the default zero point current is 12mA, when the forward torque value reaches the range range, the output current is 20mA, and when the reverse torque value reaches the range, the output current is 4mA.
+-5~0~5V: The resolution is 1 / 16383, the default zero voltage is 0V, when the forward torque value reaches the range range, the output voltage is 5V, and when the reverse torque value reaches the range, the output voltage is -5V.
+0~10V: The resolution is 1 / 16383, and the default zero voltage is 0V. When the forward torque and reverse torque reach the frontal quantitative range, the transmission output voltage is 10V, without distinguishing the direction of torque value.
+0~5~10V: The resolution is 1 / 16383, the default zero voltage is 5V, when the forward torque value reaches the range range, the output voltage is 10V, and when the reverse torque value reaches the range, the output voltage is 0V.
+7.3. Calibrate the current delivery output
+(The following transmission adjustment takes 0-5-10V as an example) Connect the multimeter to the transmission output voltage port and enter the parameter modification interface 2. Switch to the transmission full degree modification, observe whether the multimeter voltage number is 10V, if there is a deviation to adjust the current transmission output full degree, adjust the output voltage is exactly 10V, the transmission full degree calibration is completed, calibrate the transmission zero again, change the current transmission zero value, and adjust the voltage output by 5V.
+7.4. Speed output mode
+
+Speed output
+
+8.1. Rated performance of speed
+Maximum speed: 15000RPM for 10 impulse, 10000RPM for 60 impulse, 3000RPM for 120 impulse, 3000RPM for 2000 impulse
+Output: monopulse for 10 impulse, Monopulse for 60 impulse, monopulse for 120 impulse, A.B.Z for 2000 impulse
+Distinguish positive reversal: No for 10 impulse, No for 60 impulse, No for 120 impulse, No for 2000 impulse
+Output rise time (5V): 12us for 10 impulse, 12us for 60 impulse, 12us for 120 impulse, 1us for 2000 impulse
+Output form: The collector opens the way (OC) for 10 impulse, The collector opens the way (OC) for 60 impulse, The collector opens the way (OC) for 120 impulse, NPN The collector opens the way PNP The collector opens the way NPN Voltage output (Default) for 2000 impulse
+OC pull-up voltage: 5-30V for 10 impulse, 5-30V for 60 impulse, 5-30V for 120 impulse, / for 2000 impulse
+8.2. Standard rotating speed and standard output mode
+The torque sensor has a default output of 60Hz per lap with a maximum speed of 10000RPM, 10Hz of 15000RPM or 120Hz of 3000RPM. All three modes use the OC output mode, which is the open-circuit output mode for the collector. When the output is used, the pull resistance needs to be added to the collector and choose between 1K and 10K. Generally, 5.1K resistance is selected as the upper pull resistance. Resistance should not be too large or too small, otherwise it will lead to output frequency deformation, output frequency range reduction.
+Example: Speed RPM + connected to 5.1K pull resistance to 24V, speed RPM- common connection, output signal connected to RPM +. Then the output signal is the square wave speed frequency with the amplitude of 24V.
+8.3. Analog quantity output mode
+If you are not convenient to collect OC output, or only equipped with analog module, need speed output analog, you can choose the company's frequency to analog converter, need to provide the required speed range before purchase.
+8.3.1. Analog quantity module wiring mode
+Access sensor RPM + to converter terminal 2 and RPM- access converter terminal 1. The converter is then fed to the DC24V, and the analog quantity signal is output between the converter terminals 9 and 10.
+8.4. Encoder output mode
+If you have a higher demand for speed and accuracy, you can select the 2000 line encoder, which is placed inside the sensor. The exterior size of the sensor does not change, more adaptable. The encoder power supply is directly using the sensor 24V power supply, no external power supply, the default output is ABZ item output. The external output can be 4 times the frequency, the output resolution can reach 8000HZ, and the differential signal output needs to be customized. There are three ways to output, the following three internal circuit and wiring definitions.
+The NPN collector has an open-circuit output
+PNP collector open circuit output
+NPN voltage output
+
+Use precautions
+
+Prohibited during operation and operation (Prohibited items)
+Do not dismantle the product.
+Please do not let the product fall, and exert a strong impact on the product.
+No use of this product for purposes other than torque measurement.
+If improperly used, it may lead to death or seriously injured content
+Warnings on design
+
+In order to ensure that the whole system can operate safely, please assemble the safety circuit on the outside of the product.
+If this product is used in the following purposes, be sure to consult our sales staff before use.
+When used in environments not mentioned in the instruction manual.
+In the use of medical equipment, transportation equipment, weapons, entertainment equipment, installation devices and other uses that have a great impact on personal safety and property
+During operation, do not touch the product with hand or fingers, otherwise injury or clothing may be involved in the product. To prevent danger, be sure to install a safety cover, or other safety guards, so that the device will stop automatically when you may touch the rotating part.
+In case the product is damaged, the drive part and the load part may be completely separated to prevent danger, please install safety guards such as safety brake
+
+Warning on installation
+
+Do not install it in the following environment.
+In a corrosive or combustible gas environment
+Places where water, oil, and medicine splash
+When installing the square head shaft, concave head connection, if the shaft is biased or bent, not only can not meet the performance of the product, but also will cause damage to the product due to the rotating vibration, in the worst case, the product will fly out, very dangerous. When performing the centering operation of the shaft, the low-speed rotation must be used to confirm that the shaft runs smoothly and without vibration before starting running the product. When installing the product on the device, ensure that the installation error is within the allowable range. If the product is used beyond the installation range, it may damage the product itself or affect the device that install the product.
+Please do not energize the shaft or frame of this product. In addition, please implement protective measures outside the product to avoid leakage current from entering the shaft.
+
+Warning on the wiring
+
+Please do not connect this product directly to the commercial power supply.
+Please confirm that the product is not connected first.
+Pull off the plug
+Cable wiring and connection
+Please insulate the terminals of unused cables to avoid contact with other metal or live parts.
+Before turning on the power supply, please carefully confirm the wiring first.
+
+Warning on the wiring
+
+Please do not repair, inspect the internal product, and modify the product without permission. Otherwise, it may lead to a fire and an electric shock. When needing to repair it, please entrust our company to repair it.
+Make sure that the fixing part is fastened before starting.
+
+Start maintenance warning
+
+Please do not repair, inspect the internal product, and modify the product without permission. Otherwise, it may lead to a fire and an electric shock. When needing to repair it, please entrust our company to repair it.
+Make sure that the fixing part is fastened before starting.
+
+Warning in run
+
+When used, ensure that the supply voltage and load are within the range of specifications and ratings. If used in the rated state, it will not only damage the product, but also may affect the installation of the product.
+If the outer cover of the main body is opened, it may be electrocuted inside the product or involved in the rotating part.
+If smoke, combustion, abnormal odor occurs, please cut off the power supply immediately.
+Do not touch the rotating parts and non-rotating parts of the product during rotation. Please be careful not to involve your fingers or clothing in this product.
+If running above the fastest rotation speed, it will lead to increased vibration, serious will make the product damage, parts fall out, very dangerous. Be sure not to exceed the fastest speed limit. In addition, even if the maximum speed limit will not exceed to avoid the vibration due to the size error on the installation.
+If running in the state of loose connection fixation, it may cause skid, abnormal heat, damage, and affect the device to install the product. Be sure to use this product when the fixed part is fully fastened. Be sure to install safety guards such as safety brakes.
+
+Note on installation
+
+Do not install it in the following environment.
+Places where the temperature and humidity exceed the specification range
+Places where the temperature changes sharply or may freeze or dew
+The place where the temperature difference between the driving part and the load part
+outdoor
+A place of direct sunlight
+Places with more dust
+poorly ventilated places
+Places with more salt and metal debris
+The place where the impact is being directly communicated to the subject
+Take adequate shielding measures, including the cables.
+Near the wire
+Places where strong electric fields and strong magnetic fields are generated
+Places where static electricity and relays are generated
+When installation, please try to stay away from the equipment that will produce high frequency, high voltage, high current, surge, etc. Also, please separate from these power lines. Do not arrange the wiring and the same pipe wiring in parallel.
+When connecting the motor as the drive source, please follow the instructions of the frequency converter and servo amplifier used, and the motor casing should be grounded.
+Do not use it until the fault is cleared.
+Do not use screw classes that are not specified by the company.
+
+Distribution
+
+In use, the cable generates static electricity. The static electricity may damage the semiconductors in the device
+Use a stable DC 24V power supply.
+Please use the shielded cable.
+When extending cables, use cables with line diameter above AWG26 (0.13mm²) and length not more than 10m.
+To prevent static failure, ground with threaded holes in the housing.
+
+Start maintenance attention
+
+The protection performance of the product may be impaired if not used in the specified method.
+Cleaning
+Unplug the power when cleaning.
+Please do not use a wet rag. When dirt is serious, please soak the cloth in low concentration neutral cleaning agent and wring dry and wipe, and then dry with dry soft cloth.
+
+Attention when abandoned
+
+When discarding this product, please treat it as per the industrial waste.
+
+
+Torque conversion relationship (to prevent sensor overload)
+
+10.1 Calculate the relation type
+After installation, please rotate the product at a low speed to confirm its output.
+Rotate start, stop conditions and torque: During design and operation, make sure that the torque applied on this product may exceed the rated value when starting or stopping the rotation.
+temperature gradient: Be careful not to generate shaft temperature gradient when installation. Heat from other devices should be avoided from passing on directly to the shaft. Turn the shaft at a high speed, which can cause the bearing to heat up. Please implement cooling measures such as ventilation as required.
+
+Debugging
+
+Q. No output torque signal is available.
+A. 1) Please confirm the power supply voltage. Ensure that the power supply voltage is DC24V.
+
+After adjusting the wiring other than the power supply to the open state, apply the torque, and then measure the voltage between SIG, OUT and SIG and GND.
+
+
+If there is no output voltage in this state, it can be inferred as this product fault.
+If the voltage is output in this state, it can be inferred as a problem on the connection method.
+
+Q. The no-load state produces a torque signal.
+A. Remove the product from the installation device no load. If the output exceeds the sensor specification range in this state, the product failure can be inferred. Probably a zero-point offset due to a sharp temperature change or overload. Verify any problem with the specifications and operating method.
+Q. This product has an unusually high temperature.
+A. Without rotating shaft after power on, the temperature rise should be about peripheral temperature+10°C. The temperature rise shall be about+15°C (rpm at 15000) even when no gauge charge is applied to the axis. If the temperature of the product is obviously abnormal compared with the above situation, it can be inferred as the following reasons.
+
+Please confirm that additional heat sources are transferred to the shaft.
+Please confirm that the power supply voltage is DC24V ±10%.
+If the temperature of the product is still high, it can be inferred as a fault.
+If the temperature rises abnormally when the power supply is normal and the shaft rotates, it can be inferred that an extra gauge load (radial, thrust load) is applied on the shaft, or that the bearing wear has reached the service life.
+
+Q. With the rotation, the output fluctuates.
+A. Please confirm the output fluctuation when running the product independently. If the shaft is stuck in the rotation, or when the rotation is not smooth, it can be inferred to be a bearing wear, to reach the service life. If the product is fluctuating in the assembled state, confirm the installation allowable error. It can be inferred as fluctuations caused to the deformation of the measured object axis.
+Q. The output is unstable under a state where a certain load is applied.
+A. - Please confirm that the measurement object, the product and the unit are not vibration.
+
+Check if there is a strong alternating magnetic field nearby, or if the temperature varies frequently.
+Verify that the shaft is charged or has a leakage current in the shaft.
+
+If the above situation is not present, it can be inferred that the product fails.
+
+Common use problems and solutions
+What if the data setting is incorrect or the torque value is inaccurate?
+
+Answer: restoring the factory setting can basically solve the problem of the wrong parameter setting. When the main interface displays, the K2 button presses the screen and flashes once five times within four seconds to indicate that the factory has been restored.
+
+There is a beating phenomenon, is it a sensor problem?
+
+Answer: The speed accuracy of the torque sensor is less than 1%, and the servo motor is controlled by PID algorithm, so there will be fluctuations. If high precision speed detection of the speed is required, please add hall encoder or photoelectric encoder.
+
+What if the sensor cannot communicate with the MODBUS?
+
+Answer: Change the communication mode to 2, test whether the communication line is normal, can receive correct data, determine the communication line is normal, then send 0103000000002 C 40 B to check whether the torque value is returned.
+
+How does the rotation speed be read by using the active transmission mode?
+
+Answer: In order to ensure the speed, only send the torque, the speed can be detected by the frequency, the specific way to check section 7 of the manual.
+
+Wiring mode (no special requirements, default mode)
+
+Pipe foot number 1, Cable color red, Signal name PWR (+24V)
+Pipe foot number 2, black, PWR (0V)
+Pipe foot number 3, hispid, SIG OUT (±5V/0-10V/4-20mA)
+Pipe foot number 4, arthraxon,
+Pipe foot number 5, white, SIG GND
+Pipe foot number 6, yellow, RS485 A
+Pipe foot number 7, blue, RS485 B
+Pipe foot number 8, Citrus sinensis, RPM+
+shield line, ash, RPM-
+, litzendraht wire, *The shield line is not connected to the sensor frame
+13.1. Plug-in pipe foot allocation
+1: red PWR (+24V)
+2: black PWR (0V)
+3: green SIG OUT
+4: white SIG GND
+5: yellow RS485 A
+6: blue RS485 B
+7: orange RPM+
+8: grey RPM-
+9: Shielding wire USB to 485 adapter wiring
+
+Installation and use
+
+Torque sensor, key slot connection if dropped, can cause damage and personnel injury, please install pins to prevent loss. Verify that the keyslot is free of damage and firmly fitted into the torque sensor.
+This product can be used either horizontally or vertically. Also, there is no limit on the direction of the cable. When installing the product to other devices, ask for the frame of the product to prevent it from rotating.
+Driving device
+Add bearings to drag the sensor between the coupling and other devices
+Drive
+Load
+Bearing
+Bearing
+www.ato.com
+sales@ato.com
+18005815119
+Global Shipping
+
+State
+
+Exceeding the environmental conditions will affect the measurement index and life of the sensor, which will cause permanent damage to the sensor! The installation, commissioning and maintenance of this product shall be carried out by qualified engineering and technical personnel. The Company is not liable for any direct or indirect loss except for the product itself.
+The Company reserves the right to change the product specification without notice.
+
+================================================================================
+DYN-200 MONITOR SOFTWARE - ДОПОЛНИТЕЛЬНАЯ ДОКУМЕНТАЦИЯ
+================================================================================
+
+14. Функции безопасности программного обеспечения (ЭТАП 5-6)
+
+14.1. Circuit Breaker (Защита от каскадных ошибок)
+
+Программа использует паттерн Circuit Breaker для защиты от бесконечных попыток
+подключения к датчику:
+
+- При 5 подряд неудачных попытках подключения, система переходит в режим OPEN
+- В режиме OPEN новые попытки блокируются на 10 секунд
+- После таймаута система пробует переподключиться (HALF_OPEN)
+- При успешном подключении состояние сбрасывается в CLOSED
+
+Это предотвращает перегрузку системы и COM-порта при постоянных ошибках.
+
+14.2. Валидация входных данных
+
+Программа проверяет все пользовательские данные:
+- COM-порт: формат COM1-COM256 (Windows) или /dev/tty* (Linux)
+- Baudrate: только стандартные значения (9600, 19200, 38400, 57600, 115200)
+- Путь для логов: защита от path traversal (запрещены .. в пути)
+- Коэффициенты: проверка диапазона (0.1 - 2.0 для коррекции мощности)
+
+14.3. Thread-Safety (Потокобезопасность)
+
+Приложение использует многопоточную архитектуру:
+- Main thread: обновление UI, обработка событий
+- Read thread: чтение данных с датчика
+- Все разделяемые данные защищены Locks
+- UI обновляется только из main thread через очередь
+
+14.4. Graceful Shutdown
+
+При закрытии приложения:
+1. Останавливается чтение данных
+2. Закрывается COM-порт корректно
+3. Сохраняются открытые файлы логов
+4. Завершаются все потоки с таймаутом 3 секунды
+
+--------------------------------------------------------------------------------
+
+15. Устранение неполадок программного обеспечения
+
+15.1. Датчик не подключается
+
+Симптом: Статус "DISCONNECTED" или "ERROR"
+
+Проверьте:
+1. Подключение кабелей (A→A, B→B)
+2. Питание датчика (должен светиться дисплей)
+3. Правильность COM-порта в Диспетчере устройств
+4. Настройки baudrate (проверьте на дисплее датчика)
+5. Не занят ли порт другой программой
+
+Действия:
+- Перезапустите приложение
+- Отключите и снова подключите USB-конвертер
+- Проверьте в Диспетчере устройств, что драйвер установлен
+- Попробуйте другой USB-порт
+
+15.2. Нет данных на графике
+
+Симптом: Подключение есть, но график пустой
+
+Проверьте:
+1. Нажата ли кнопка "ЗАПУСТИТЬ"
+2. Показывает ли датчик данные на встроенном дисплее
+3. Правильный ли slave address (обычно 1)
+
+Действия:
+- Нажмите "Сбросить" для очистки графика
+- Проверьте логи в debug_log.txt
+- Убедитесь, что датчик в режиме Modbus (символ 09 = 1)
+
+15.3. Ошибка записи в лог
+
+Симптом: Сообщение "Permission denied" или "IO error"
+
+Проверьте:
+1. Не открыт ли файл в другой программе (Excel, блокнот)
+2. Права доступа к директории
+3. Достаточно ли места на диске
+
+Действия:
+- Закройте файл в других программах
+- Выберите другую директорию для сохранения
+- Проверьте права доступа
+
+15.4. Приложение зависает
+
+Симптом: Нет ответа на действия пользователя
+
+Действия:
+1. Подождите 10-15 секунд (возможно, таймаут операции)
+2. Нажмите Ctrl+C в консоли (если запущено из консоли)
+3. Используйте Диспетчер задач для завершения процесса
+4. Проверьте debug_log.txt на наличие ошибок
+
+15.5. Некорректные значения
+
+Симптом: Значения момента/оборотов явно неверные
+
+Проверьте:
+1. Коэффициенты пересчёта в настройках
+2. Десятичные знаки для отображения
+3. Не перегружен ли датчик (>200% от номинала)
+
+--------------------------------------------------------------------------------
+
+16. Система логирования
+
+16.1. Уровни логирования
+
+DEBUG    - Подробная отладочная информация (все Modbus-запросы)
+INFO     - Информационные сообщения (подключение, запуск)
+WARNING  - Предупреждения (пропущен кадр, задержка)
+ERROR    - Ошибки (ошибка чтения, таймаут)
+CRITICAL - Критические ошибки (невозможно продолжить работу)
+
+16.2. Файл логов
+
+Расположение: debug_log.txt (в директории приложения)
+Формат: 2026-03-12 10:30:45.123 [INFO] [module:123] Сообщение
+
+Ротация:
+- Максимальный размер: 5 MB
+- Количество резервных копий: 5 (debug_log.txt.1, .2, ...)
+- При превышении размера - автоматическое архивирование
+
+16.3. Логирование данных
+
+CSV-формат логов данных:
+Timestamp,Torque_Nm,Speed_RPM,Power_W,Mode
+2026-03-12 10:30:45.123,12.34,1500,1234.5,Modbus
+
+Формат Timestamp: ГГГГ-ММ-ДД ЧЧ:ММ:СС.мс
+
+--------------------------------------------------------------------------------
+
+17. Запуск тестов
+
+17.1. Требования
+
+Для запуска тестов необходимы:
+- pytest>=7.0.0
+- pytest-mock>=3.6.0
+
+Установка:
+pip install pytest pytest-mock
+
+17.2. Запуск тестов
+
+# Все тесты
+pytest
+
+# С подробным выводом
+pytest -v
+
+# С покрытием кода
+pytest --cov=. --cov-report=html
+
+# Конкретный тестовый файл
+pytest tests/test_unit_conversion.py -v
+
+# Тесты с определённым именем
+pytest -k "test_torque"
+
+17.3. Структура тестов
+
+tests/
+├── test_config.py          - Тесты конфигурации и AppState
+├── test_unit_conversion.py - Тесты конвертации единиц
+├── test_modbus_client.py   - Тесты Modbus-клиента
+└── test_validators.py      - Тесты валидации
+
+17.4. Добавление новых тестов
+
+Пример теста:
+
+def test_example():
+    """Описание теста."""
+    # Arrange
+    input_value = 50000
+    expected = 50.0
+    
+    # Act
+    result = raw_to_torque(input_value)
+    
+    # Assert
+    assert result == expected
+
+Запуск конкретного теста:
+pytest tests/test_file.py::test_function_name -v
+
+--------------------------------------------------------------------------------
+
+18. Настройка коэффициентов
+
+18.1. Крутящий момент (Torque Coefficient)
+
+Назначение: Множитель для корректировки значения момента
+Диапазон: 0.1 - 10.0
+По умолчанию: 1.0
+
+Используется для:
+- Калибровки датчика
+- Компенсации передаточного отношения
+
+Формула: Torque_display = (raw / 1000) × coefficient
+
+18.2. Обороты (Speed Coefficient)
+
+Назначение: Множитель для корректировки оборотов
+Диапазон: 0.1 - 10.0
+По умолчанию: 1.0
+
+Для DYN-200 обычно остаётся 1.0 (1:1)
+
+18.3. Мощность (Power Correction)
+
+Назначение: Коррекция расчётной мощности
+Диапазон: 0.1 - 2.0
+По умолчанию: 1.0
+
+Формула: Power_W = raw_value × correction
+
+--------------------------------------------------------------------------------
+
+19. Горячие клавиши
+
+F5          - Запустить/остановить считывание
+Ctrl+L      - Начать/остановить логирование
+Ctrl+S      - Открыть настройки подключения
+Ctrl+Shift+S - Открыть базовые настройки
+Esc         - Закрыть текущий диалог
+Ctrl+Q      - Выход из приложения
+
+ПКМ на графике - Контекстное меню настройки осей
+
+--------------------------------------------------------------------------------
+
+================================================================================
+ОРИГИНАЛЬНАЯ ДОКУМЕНТАЦИЯ ДАТЧИКА DYN-200
+================================================================================
+
+Warranty description
+
+Product from the date of sale, the whole machine warranty for one year, lifelong service.
+During the warranty period, if the product fault is found, contact our company in time and shall not remove it by itself, otherwise the company has the right to refuse the warranty.
+Charging for repair shall be performed under any of the following circumstances:
+
+Products out of warranty.
+Damaged due to poor transportation, storage, or failure to operate as required by the instructions.
+Self-disassembled products or not repaired by our warranty point.
+Products with no product number or no warranty product number that do not match or alter the product number sent for repair.
+For the damage not caused by product quality during the warranty period, the repair cost shall be borne by the user.
