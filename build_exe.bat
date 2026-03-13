@@ -4,6 +4,9 @@ echo ==========================================
 echo Сборка DYN-200 Monitor в EXE
 echo ==========================================
 echo.
+echo [!] ВАЖНО: Для работы tkinter рекомендуется сборка через системный Python
+echo     без виртуального окружения, так как venv может не содержать Tcl/Tk.
+echo.
 
 :: Проверка наличия Python
 python --version >nul 2>&1
@@ -13,27 +16,24 @@ if errorlevel 1 (
     exit /b 1
 )
 
-echo [1/5] Проверка Python... OK
+echo [1/4] Проверка Python... OK
 
-:: Проверка виртуального окружения
-if not exist ".venv\Scripts\python.exe" (
-    echo [2/5] Создание виртуального окружения...
-    python -m venv .venv
-    if errorlevel 1 (
-        echo [ОШИБКА] Не удалось создать виртуальное окружение
-        pause
-        exit /b 1
-    )
-) else (
-    echo [2/5] Виртуальное окружение найдено... OK
+:: Проверка наличия tkinter в системном Python
+python -c "import tkinter; print(tkinter.Tcl().eval('info patchlevel'))" >nul 2>&1
+if errorlevel 1 (
+    echo [ОШИБКА] В системном Python отсутствует tkinter!
+    echo         Установите Python с поддержкой Tcl/Tk.
+    pause
+    exit /b 1
 )
+echo     tkinter найден... OK
 
-:: Активация виртуального окружения
-echo [3/5] Активация окружения...
-call .venv\Scripts\activate.bat
+:: Используем системный Python для сборки (tkinter может отсутствовать в venv)
+echo [2/4] Настройка окружения...
+echo     Используется системный Python (tkinter может отсутствовать в venv)
 
 :: Установка зависимостей
-echo [4/5] Установка зависимостей...
+echo [3/4] Установка зависимостей...
 python -m pip install --upgrade pip >nul 2>&1
 pip install -r requirements.txt >nul 2>&1
 
@@ -44,7 +44,7 @@ if errorlevel 1 (
     pip install pyinstaller >nul 2>&1
 )
 
-echo [5/5] Сборка EXE...
+echo [4/4] Сборка EXE...
 echo.
 
 :: Очистка старых сборок
@@ -61,6 +61,11 @@ pyinstaller --noconfirm ^
     --add-data "core;core" ^
     --add-data "gui;gui" ^
     --add-data "utils;utils" ^
+    --collect-all "tkinter" ^
+    --collect-all "tcl8" ^
+    --collect-all "tk8" ^
+    --hidden-import "tkinter" ^
+    --hidden-import "_tkinter" ^
     --hidden-import "pymodbus" ^
     --hidden-import "pymodbus.client" ^
     --hidden-import "serial" ^
@@ -89,7 +94,9 @@ echo EXE файл находится в папке: dist\DYN200_Monitor.exe
 echo.
 echo Для запуска на другом ПК:
 echo 1. Скопируйте файл dist\DYN200_Monitor.exe
-echo 2. Убедитесь, что на целевом ПК установлен драйвер COM-порта
-echo 3. Запустите DYN200_Monitor.exe
+echo 2. Запустите DYN200_Monitor.exe
+echo.
+echo [ВАЖНО] EXE включает все необходимые библиотеки (tkinter, tcl, tk)
+echo         Дополнительная установка Python на целевом ПК не требуется.
 echo.
 pause
